@@ -130,6 +130,7 @@ CREATE SEQUENCE PRODUCT_IN_STOCK_SEQ
    START WITH 1;
 
 -- create foreign key
+
 PROMPT Creating Foreign Keys on 'USER_ROLE'
 ALTER TABLE USER_ROLE 
 ADD CONSTRAINT
@@ -186,6 +187,9 @@ ALTER TABLE MENU ADD CONSTRAINT
 /
 --
 --09.05.2020 UPDATE by Hoi Nguyen
+-- add primary key for auth, invoice_detail, user_role
+
+
 alter table auth
 add auth_id NUMBER(5) not null primary key;
 
@@ -195,7 +199,10 @@ add in_de_id NUMBER(5) not null primary key;
 alter table user_role
 add user_role_id NUMBER(5) not null primary key;
 
+
 --10.05.2020 UPDATE by Hoi Nguyen
+-- create sequence for auth, invoice_detail, user_role
+
   CREATE SEQUENCE AUTH_SEQ
    INCREMENT BY 1 
    START WITH 1;

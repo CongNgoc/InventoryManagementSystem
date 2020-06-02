@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+    <property name="connection.username">qlkho_admin</property>
+    <property name="connection.password">oracle11</property>
+    <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="current_session_context_class">thread</property>
+    <property name="show_sql">false</property>
+    <property name="enable_lazy_load_no_trans">true</property>
+    <mapping resource="Auth.hbm.xml"></mapping>
+    <mapping resource="Category.hbm.xml"></mapping>
+    <mapping resource="History.hbm.xml"></mapping>
+    <mapping resource="Invoice.hbm.xml"></mapping>
+    <mapping resource="InvoiceDetail.hbm.xml"></mapping>
+    <mapping resource="Menu.hbm.xml"></mapping>
+    <mapping resource="ProductInfo.hbm.xml"></mapping>
+    <mapping resource="ProductInStock.hbm.xml"></mapping>
+    <mapping resource="UserRole.hbm.xml"></mapping>
+    <mapping resource="Users.hbm.xml"></mapping>
+  </session-factory>
+</hibernate-configuration>

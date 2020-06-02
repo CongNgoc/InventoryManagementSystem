@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="inventory.model.History" table="HISTORY" schema="QLKHO_ADMIN">
+        <id name="historyId" column="HISTORY_ID"/>
+        <property name="actionName" column="ACTION_NAME"/>
+        <property name="type" column="TYPE"/>
+        <property name="qty" column="QTY"/>
+        <property name="price" column="PRICE"/>
+        <property name="activeFlag" column="ACTIVE_FLAG"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="updateDate" column="UPDATE_DATE"/>
+    </class>
+</hibernate-mapping>

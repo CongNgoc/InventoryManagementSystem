@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="inventory.model.UserRole" table="USER_ROLE" schema="QLKHO_ADMIN">
+        <id name="userRoleId" column="USER_ROLE_ID"/>
+        <property name="activeFlag" column="ACTIVE_FLAG"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="updateDate" column="UPDATE_DATE"/>
+    </class>
+</hibernate-mapping>

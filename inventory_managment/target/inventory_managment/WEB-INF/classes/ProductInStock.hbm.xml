@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="inventory.model.ProductInStock" table="PRODUCT_IN_STOCK" schema="QLKHO_ADMIN">
+        <id name="productStockId" column="PRODUCT_STOCK_ID"/>
+        <property name="quanity" column="QUANITY"/>
+        <property name="activeFlag" column="ACTIVE_FLAG"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="updateDate" column="UPDATE_DATE"/>
+    </class>
+</hibernate-mapping>

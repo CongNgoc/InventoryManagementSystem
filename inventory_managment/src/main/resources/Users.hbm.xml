@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="inventory.model.Users" table="USERS" schema="QLKHO_ADMIN">
+        <id name="userId" column="USER_ID"/>
+        <property name="firstName" column="FIRST_NAME"/>
+        <property name="lastName" column="LAST_NAME"/>
+        <property name="birthday" column="BIRTHDAY"/>
+        <property name="userName" column="USER_NAME"/>
+        <property name="password" column="PASSWORD"/>
+        <property name="email" column="EMAIL"/>
+        <property name="phone" column="PHONE"/>
+        <property name="activeFlag" column="ACTIVE_FLAG"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="updateDate" column="UPDATE_DATE"/>
+    </class>
+</hibernate-mapping>

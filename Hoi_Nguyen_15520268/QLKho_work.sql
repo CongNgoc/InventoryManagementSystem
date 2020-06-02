@@ -217,8 +217,12 @@ add user_role_id NUMBER(5) not null primary key;
 
 commit;
 
+--
+--02.06.2020 MODIFIED BY Cong Nguyen
+-- Add Order_index column To MENU TABLE
+ 
+alter table MENU
+add order_index NUMBER(5);
 
-insert into category values(category_seq.nextval, 'Apple', 'A product from Steve Jobs', 1, null, null);
-insert into category values(category_seq.nextval, 'VSmart', 'A product from Mr.Vuong', 0, null, null);
-insert into category values(category_seq.nextval, 'Bphone', 'A product from Mr.Quang', 1, null, null);
-insert into category values(category_seq.nextval, 'Nokia', 'A product from Mr. No name', 1, null, null);
+
+

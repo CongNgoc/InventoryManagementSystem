@@ -204,18 +204,16 @@ add user_role_id NUMBER(5) not null primary key;
 -- create sequence for auth, invoice_detail, user_role
 
   CREATE SEQUENCE AUTH_SEQ
-   INCREMENT BY 1 
-   START WITH 1;
+   START WITH 1
+  INCREMENT BY 1 ;
    
   CREATE SEQUENCE IN_DE_SEQ
-   INCREMENT BY 1 
-   START WITH 1;
+   START WITH 1
+   INCREMENT BY 1 ;
    
    CREATE SEQUENCE USER_ROLE_SEQ
-   INCREMENT BY 1 
-   START WITH 1;
-
-commit;
+   START WITH 1
+   INCREMENT BY 1 ;
 
 --
 --02.06.2020 MODIFIED BY Cong Nguyen
@@ -224,5 +222,129 @@ commit;
 alter table MENU
 add order_index NUMBER(5);
 
+
+-- MODIFY CREATE_DATE DEFAULT VALUE IS SYSDATE
+ALTER TABLE CATEGORY
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE AUTH
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+  
+ALTER TABLE HISTORY
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE INVOICE
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE INVOICE_DETAIL
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE PRODUCT_INFO
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE ROLE
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE USER_ROLE
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+ALTER TABLE USERS
+MODIFY (CREATE_DATE DATE DEFAULT SYSDATE,
+UPDATE_DATE DATE DEFAULT SYSDATE);
+
+
+--SET SEQUECE TO ID COLMUN
+ALTER TABLE USERS
+MODIFY USER_ID NUMBER(5) DEFAULT USERS_SEQ.NEXTVAL;
+
+ALTER TABLE AUTH
+MODIFY AUTH_ID NUMBER(5) DEFAULT AUTH_SEQ.NEXTVAL;
+
+ALTER TABLE MENU
+MODIFY MENU_ID NUMBER(5) DEFAULT MENU_SEQ.NEXTVAL;
+
+ALTER TABLE CATEGORY
+MODIFY CATEGORY_ID NUMBER(5) DEFAULT CATEGORY_SEQ.NEXTVAL
+
+CREATE SEQUENCE HISTORY_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE HISTORY
+MODIFY HISTORY_ID NUMBER(5) DEFAULT HISTORY_SEQ.NEXTVAL;
+
+ALTER TABLE INVOICE
+MODIFY INVOICE_ID NUMBER(5) DEFAULT INVOICE_SEQ.NEXTVAL;
+
+ALTER TABLE INVOICE_DETAIL
+MODIFY IN_DE_ID NUMBER(5) DEFAULT IN_DE_SEQ.NEXTVAL;
+
+ALTER TABLE PRODUCT_IN_STOCK
+MODIFY PRODUCT_STOCK_ID NUMBER(5) DEFAULT PRODUCT_IN_STOCK_SEQ.NEXTVAL;
+
+ALTER TABLE PRODUCT_INFO
+MODIFY PRODUCT_INFO_ID NUMBER(5) DEFAULT PRODUCT_INFO_SEQ.NEXTVAL;
+
+ALTER TABLE ROLE
+MODIFY ROLE_ID NUMBER(5) DEFAULT ROLE_SEQ.NEXTVAL;
+
+ALTER TABLE USER_ROLE
+MODIFY USER_ROLE_ID NUMBER(5) DEFAULT USER_ROLE_SEQ.NEXTVAL;
+
+--INSERT VALUE TO TEST MODIFY DEFAUT VALUE
+--MENU TABLE
+SELECT * FROM MENU;
+insert into menu(MENU_ID, url,menu_name) values (0,'/','Root');
+insert into menu(parent_id,url,menu_name,order_index) values (0,'/product','S?n ph?m',1);
+insert into menu(parent_id,url,menu_name,order_index) values (0,'/stock','Kho',2);
+insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (3, 0,'/management','Quản lý',3);
+
+insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (4, 1,'/product-info/list','Danh sách sản phẩm',2);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/list','Danh sách category',1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/edit','Sửa',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/view','Xem',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/add','Thêm mới',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/save','Lưu',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/delete','Xoá',-1);
+
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-recept/list','Danh sách nhập kho',1);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-issue/list','Danh sách xuất kho',2);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/product-in-stock/list','Sản phẩm trong kho',3);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/history','Lịch sử kho',4);
+
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/user/list','Danh sách user',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/menu/list','Danh sách menu',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/role/list','Danh sách quyền',1);
+
+--ROLE TABLE
+INSERT INTO role(ROLE_NAME,DESCRIPTION) VALUES ('admin','Admin of system');
+INSERT INTO role(ROLE_NAME,DESCRIPTION) VALUES  ('staff','Staff of system');
+
+--AUTH TABLE
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,1,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,2,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,3,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,4,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,5,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,6,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,7,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,8,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,9,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,10,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,11,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,12,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,13,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,14,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,15,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,16,1);
+INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,17,1);
 
 

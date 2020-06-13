@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 public class Menu {
@@ -17,6 +18,25 @@ public class Menu {
     private Time updateDate;
     private Short parentId;
     private Short orderIndex;
+    private List<Menu> childList;
+
+    public String getMenuIdForHTML() {
+        return menuIdForHTML;
+    }
+
+    public void setMenuIdForHTML(String menuIdForHTML) {
+        this.menuIdForHTML = menuIdForHTML;
+    }
+
+    private String menuIdForHTML;
+
+    public List<Menu> getChildList() {
+        return childList;
+    }
+
+    public void setChildList(List<Menu> childList) {
+        this.childList = childList;
+    }
 
     @Id
     @Column(name = "MENU_ID", nullable = false, precision = 0)

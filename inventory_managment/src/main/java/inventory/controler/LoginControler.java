@@ -1,9 +1,7 @@
 package inventory.controler;
 
-import inventory.model.UserRole;
-import inventory.model.Users;
-import inventory.service.UserService;
-import inventory.service.UserRoleService;
+import inventory.model.*;
+import inventory.service.*;
 import inventory.util.Constant;
 import inventory.validate.LoginValidate;
 import org.apache.log4j.Logger;
@@ -19,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.*;
 
 @Controller
 public class LoginControler {
@@ -29,6 +28,12 @@ public class LoginControler {
     private UserRoleService userRoleService;
     @Autowired
     private LoginValidate loginValidate;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private AuthService authService;
+    @Autowired
+    private MenuService menuService;
 
     @InitBinder
     private void initBinder(WebDataBinder binder){
@@ -44,9 +49,6 @@ public class LoginControler {
         return "login/login";
     }
 
-//    @PostMapping("/processLogin1")
-//    public
-
     @PostMapping("/processLogin")
     public String processLogin(Model model, @ModelAttribute("loginForm")@Validated Users users, BindingResult result, HttpSession session) {
         if(result.hasErrors()) {
@@ -54,18 +56,57 @@ public class LoginControler {
         }
         Users user = null;
         UserRole userRole = null;
+        Role role = null;
 
         user = userService.findByProperty("userName", users.getUserName()).get(0);
-//        UserRole userRole = userRoleService.findByProperty("userId", user.getUserId()).get(0);
-        log.info("=================================RUN USERROLE GET(0)");
-        userRole = userRoleService.findAll().get(0);
-//        UserRole userRole = userRoleService.findByUserProperty("user_Id", user.getUserId()).get(0);
+        userRole = userRoleService.findByProperty("userId", user.getUserId()).get(0);
+        List<Menu> menuList = new ArrayList<>();
+        role = roleService.findRoleByProperty("roleId", userRole.getRoleId()).get(0);
+        List<Menu> menuChildList = new ArrayList<>();
+        List<Auth> authList = authService.findAuthByProperty("roleId", role.getRoleId());
+        for(Auth auth : authList) {
+            Menu menu = menuService.findMenuByProperty("menuId", auth.getMenuId()).get(0);
+            // MAIN MENU
+            if(menu.getParentId()==0 && menu.getOrderIndex()!=-1 && menu.isActiveFlag()
+                && auth.isPermission() && auth.isActiveFlag()) {
+                menu.setMenuIdForHTML(menu.getUrl().replace("/", "")+"Id");
+                menuList.add(menu);
+            }
+            else if(menu.getParentId()!=0 && menu.getOrderIndex()!=-1 && menu.isActiveFlag()
+                    && auth.isActiveFlag() && auth.isPermission()) {
+                menu.setMenuIdForHTML(menu.getUrl().replace("/", "")+"Id");
+                menuChildList.add(menu);
+            }
+        }
 
-        log.info("====================="+userRole.getUserRoleId());
+        for (Menu menu : menuList) {
+            List<Menu> childList = new ArrayList<>();
+            for(Menu menuChild : menuChildList) {
+                if(menuChild.getParentId() == menu.getMenuId()) {
+                    childList.add(menuChild);
+                }
+            }
+            menu.setChildList(childList);
+        }
+        sortMenu(menuList);
+        for (Menu menu : menuList) {
+            sortMenu(menu.getChildList());
+        }
+        log.info("=================SESSION SET ATTRIBUTE");
 
+        session.setAttribute(Constant.MENU_SESSION, menuList);
         session.setAttribute(Constant.USER_INFO, user);
-        System.out.println("====================="+session);
-        System.out.println("====================="+result);
+
         return "redirect:/index";
+    }
+
+    //order_index < =>
+    private void sortMenu(List<Menu> menus) {
+        Collections.sort(menus, new Comparator<Menu>() {
+            @Override
+            public int compare(Menu o1, Menu o2) {
+                return o1.getOrderIndex() - o2.getOrderIndex();
+            }
+        });
     }
 }

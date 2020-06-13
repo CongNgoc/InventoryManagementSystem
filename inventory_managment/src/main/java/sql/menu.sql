@@ -2,8 +2,10 @@
 -- insert into menu(parent_id,url,MENU_NAME, CREATE_DATE, UPDATE_DATE,order_index) values (0,'/product','Sản phẩm', SYSDATE, SYSDATE,1);
 -- (0,'/stock','Kho',2),
 -- (0,'/management','Quản lý',3),
+
 -- (1,'/product-info/list','Danh sách sản phẩm',2),
 -- (1,'/category/list','Danh sách category',1),
+
 -- (1,'/category/edit','Sửa',-1),
 -- (1,'/category/view','Xem',-1),
 -- (1,'/category/add','Thêm mới',-1),

@@ -5,12 +5,32 @@
 <hibernate-mapping>
 
     <class name="inventory.model.Menu" table="MENU" schema="QLKHO_ADMIN">
-        <id name="menuId" column="MENU_ID"/>
-        <property name="menuName" column="MENU_NAME"/>
-        <property name="url" column="URL"/>
-        <property name="menuIndex" column="MENU_INDEX"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="menuId">
+            <column name="MENU_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="menuName">
+            <column name="MENU_NAME" sql-type="varchar2(40)" length="40"/>
+        </property>
+        <property name="parentId">
+            <column name="PARENT_ID" sql-type="number(5)" precision="5" not-null="true"/>
+        </property>
+        <property name="url">
+            <column name="URL" sql-type="varchar2(100)" length="100"/>
+        </property>
+        <property name="menuIndex">
+            <column name="MENU_INDEX" sql-type="number(10)" precision="10" not-null="true"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
+        <property name="orderIndex">
+            <column name="ORDER_INDEX" sql-type="number(5)" precision="5" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

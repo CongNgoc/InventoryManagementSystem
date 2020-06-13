@@ -16,7 +16,7 @@ public class Role {
     private Time updateDate;
 
     @Id
-    @Column(name = "ROLE_ID")
+    @Column(name = "ROLE_ID", nullable = false, precision = 0)
     public short getRoleId() {
         return roleId;
     }
@@ -26,7 +26,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "ROLE_NAME")
+    @Column(name = "ROLE_NAME", nullable = false, length = 30)
     public String getRoleName() {
         return roleName;
     }
@@ -36,7 +36,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 200)
     public String getDescription() {
         return description;
     }
@@ -46,7 +46,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -56,7 +56,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -66,7 +66,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }

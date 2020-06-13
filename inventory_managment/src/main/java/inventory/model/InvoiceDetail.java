@@ -11,9 +11,11 @@ public class InvoiceDetail {
     private Time createDate;
     private Time updateDate;
     private short inDeId;
+    private short productId;
+    private short invoiceId;
 
     @Basic
-    @Column(name = "QUANITY")
+    @Column(name = "QUANITY", nullable = false, precision = 0)
     public short getQuanity() {
         return quanity;
     }
@@ -23,7 +25,7 @@ public class InvoiceDetail {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -33,7 +35,7 @@ public class InvoiceDetail {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -43,7 +45,7 @@ public class InvoiceDetail {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -53,7 +55,7 @@ public class InvoiceDetail {
     }
 
     @Id
-    @Column(name = "IN_DE_ID")
+    @Column(name = "IN_DE_ID", nullable = false, precision = 0)
     public short getInDeId() {
         return inDeId;
     }
@@ -86,5 +88,25 @@ public class InvoiceDetail {
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         result = 31 * result + (int) inDeId;
         return result;
+    }
+
+    @Basic
+    @Column(name = "PRODUCT_ID", nullable = false, precision = 0)
+    public short getProductId() {
+        return productId;
+    }
+
+    public void setProductId(short productId) {
+        this.productId = productId;
+    }
+
+    @Basic
+    @Column(name = "INVOICE_ID", nullable = false, precision = 0)
+    public short getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(short invoiceId) {
+        this.invoiceId = invoiceId;
     }
 }

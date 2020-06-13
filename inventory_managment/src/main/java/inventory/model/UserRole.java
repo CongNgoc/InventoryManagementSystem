@@ -10,9 +10,11 @@ public class UserRole {
     private Time createDate;
     private Time updateDate;
     private short userRoleId;
+    private short userId;
+    private short roleId;
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -22,7 +24,7 @@ public class UserRole {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -32,7 +34,7 @@ public class UserRole {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -42,7 +44,7 @@ public class UserRole {
     }
 
     @Id
-    @Column(name = "USER_ROLE_ID")
+    @Column(name = "USER_ROLE_ID", nullable = false, precision = 0)
     public short getUserRoleId() {
         return userRoleId;
     }
@@ -73,5 +75,25 @@ public class UserRole {
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         result = 31 * result + (int) userRoleId;
         return result;
+    }
+
+    @Basic
+    @Column(name = "USER_ID", nullable = false, precision = 0)
+    public short getUserId() {
+        return userId;
+    }
+
+    public void setUserId(short userId) {
+        this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "ROLE_ID", nullable = false, precision = 0)
+    public short getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(short roleId) {
+        this.roleId = roleId;
     }
 }

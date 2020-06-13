@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Users {
@@ -21,7 +23,7 @@ public class Users {
     private Time updateDate;
 
     @Id
-    @Column(name = "USER_ID")
+    @Column(name = "USER_ID", nullable = false, precision = 0)
     public short getUserId() {
         return userId;
     }
@@ -31,7 +33,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "FIRST_NAME")
+    @Column(name = "FIRST_NAME", nullable = false, length = 25)
     public String getFirstName() {
         return firstName;
     }
@@ -41,7 +43,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME", nullable = false, length = 25)
     public String getLastName() {
         return lastName;
     }
@@ -51,7 +53,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "BIRTHDAY")
+    @Column(name = "BIRTHDAY", nullable = false)
     public Time getBirthday() {
         return birthday;
     }
@@ -61,7 +63,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_NAME", nullable = false, length = 30)
     public String getUserName() {
         return userName;
     }
@@ -71,7 +73,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false, length = 30)
     public String getPassword() {
         return password;
     }
@@ -81,7 +83,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = true, length = 50)
     public String getEmail() {
         return email;
     }
@@ -91,7 +93,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "PHONE")
+    @Column(name = "PHONE", nullable = true, length = 12)
     public String getPhone() {
         return phone;
     }
@@ -101,7 +103,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -111,7 +113,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -121,7 +123,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }

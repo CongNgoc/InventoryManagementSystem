@@ -13,9 +13,10 @@ public class ProductInfo {
     private boolean activeFlag;
     private Time createDate;
     private Time updateDate;
+    private short categoryId;
 
     @Id
-    @Column(name = "PRODUCT_INFO_ID")
+    @Column(name = "PRODUCT_INFO_ID", nullable = false, precision = 0)
     public short getProductInfoId() {
         return productInfoId;
     }
@@ -25,7 +26,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "CODE")
+    @Column(name = "CODE", nullable = false, length = 30)
     public String getCode() {
         return code;
     }
@@ -35,7 +36,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 50)
     public String getName() {
         return name;
     }
@@ -45,7 +46,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 200)
     public String getDescription() {
         return description;
     }
@@ -55,7 +56,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -65,7 +66,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -75,7 +76,7 @@ public class ProductInfo {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -112,5 +113,15 @@ public class ProductInfo {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "CATEGORY_ID", nullable = false, precision = 0)
+    public short getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(short categoryId) {
+        this.categoryId = categoryId;
     }
 }

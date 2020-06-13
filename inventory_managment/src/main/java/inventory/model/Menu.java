@@ -15,9 +15,11 @@ public class Menu {
     private boolean activeFlag;
     private Time createDate;
     private Time updateDate;
+    private Short parentId;
+    private Short orderIndex;
 
     @Id
-    @Column(name = "MENU_ID")
+    @Column(name = "MENU_ID", nullable = false, precision = 0)
     public short getMenuId() {
         return menuId;
     }
@@ -27,7 +29,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "MENU_NAME")
+    @Column(name = "MENU_NAME", nullable = false, length = 40)
     public String getMenuName() {
         return menuName;
     }
@@ -37,7 +39,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "URL")
+    @Column(name = "URL", nullable = false, length = 100)
     public String getUrl() {
         return url;
     }
@@ -47,7 +49,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "MENU_INDEX")
+    @Column(name = "MENU_INDEX", nullable = true, precision = 0)
     public Integer getMenuIndex() {
         return menuIndex;
     }
@@ -57,7 +59,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -67,7 +69,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -77,7 +79,7 @@ public class Menu {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -114,5 +116,25 @@ public class Menu {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "PARENT_ID", nullable = true, precision = 0)
+    public Short getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Short parentId) {
+        this.parentId = parentId;
+    }
+
+    @Basic
+    @Column(name = "ORDER_INDEX", nullable = true, precision = 0)
+    public Short getOrderIndex() {
+        return orderIndex;
+    }
+
+    public void setOrderIndex(Short orderIndex) {
+        this.orderIndex = orderIndex;
     }
 }

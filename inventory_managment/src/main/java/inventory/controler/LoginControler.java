@@ -1,9 +1,12 @@
 package inventory.controler;
 
+import inventory.model.UserRole;
 import inventory.model.Users;
 import inventory.service.UserService;
+import inventory.service.UserRoleService;
 import inventory.util.Constant;
 import inventory.validate.LoginValidate;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +22,14 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginControler {
+    private Logger log = Logger.getLogger(LoginControler.class);
     @Autowired
     private UserService userService;
     @Autowired
+    private UserRoleService userRoleService;
+    @Autowired
     private LoginValidate loginValidate;
+
     @InitBinder
     private void initBinder(WebDataBinder binder){
         if (binder.getTarget() == null) return;
@@ -46,9 +53,16 @@ public class LoginControler {
             return "login/login";
         }
         Users user = null;
+        UserRole userRole = null;
 
-//        user = userService.findByPropertyUser("user_Name", users.getUserName()).get(0);
         user = userService.findByProperty("userName", users.getUserName()).get(0);
+//        UserRole userRole = userRoleService.findByProperty("userId", user.getUserId()).get(0);
+        log.info("=================================RUN USERROLE GET(0)");
+        userRole = userRoleService.findAll().get(0);
+//        UserRole userRole = userRoleService.findByUserProperty("user_Id", user.getUserId()).get(0);
+
+        log.info("====================="+userRole.getUserRoleId());
+
         session.setAttribute(Constant.USER_INFO, user);
         System.out.println("====================="+session);
         System.out.println("====================="+result);

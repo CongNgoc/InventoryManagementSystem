@@ -13,9 +13,11 @@ public class Auth {
     private Time createDate;
     private Time updateDate;
     private short authId;
+    private short roleId;
+    private short menuId;
 
     @Basic
-    @Column(name = "PERMISSION")
+    @Column(name = "PERMISSION", nullable = false, precision = 0)
     public boolean isPermission() {
         return permission;
     }
@@ -25,7 +27,7 @@ public class Auth {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -35,7 +37,7 @@ public class Auth {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -45,7 +47,7 @@ public class Auth {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -55,7 +57,7 @@ public class Auth {
     }
 
     @Id
-    @Column(name = "AUTH_ID")
+    @Column(name = "AUTH_ID", nullable = false, precision = 0)
     public short getAuthId() {
         return authId;
     }
@@ -88,5 +90,25 @@ public class Auth {
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         result = 31 * result + (int) authId;
         return result;
+    }
+
+    @Basic
+    @Column(name = "ROLE_ID", nullable = false, precision = 0)
+    public short getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(short roleId) {
+        this.roleId = roleId;
+    }
+
+    @Basic
+    @Column(name = "MENU_ID", nullable = false, precision = 0)
+    public short getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(short menuId) {
+        this.menuId = menuId;
     }
 }

@@ -6,8 +6,6 @@
   <session-factory>
     <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
     <property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
-    <property name="connection.username">qlkho_admin</property>
-    <property name="connection.password">oracle11</property>
     <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
     <property name="current_session_context_class">thread</property>
     <property name="show_sql">false</property>
@@ -22,5 +20,17 @@
     <mapping resource="ProductInStock.hbm.xml"></mapping>
     <mapping resource="UserRole.hbm.xml"></mapping>
     <mapping resource="Users.hbm.xml"></mapping>
+      <mapping class="inventory.model.Auth"/>
+      <mapping class="inventory.model.Category"/>
+    <mapping class="inventory.model.History"/>
+    <mapping class="inventory.model.Invoice"/>
+    <mapping class="inventory.model.InvoiceDetail"/>
+    <mapping class="inventory.model.Menu"/>
+    <mapping class="inventory.model.ProductInfo"/>
+    <mapping class="inventory.model.ProductInStock"/>
+    <mapping class="inventory.model.Role"/>
+    <mapping resource="Role.hbm.xml"/>
+    <mapping class="inventory.model.Users"/>
+    <mapping class="inventory.model.UserRole"/>
   </session-factory>
 </hibernate-configuration>

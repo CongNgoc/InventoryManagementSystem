@@ -14,9 +14,10 @@ public class Invoice {
     private boolean activeFlag;
     private Time createDate;
     private Time updateDate;
+    private short userId;
 
     @Id
-    @Column(name = "INVOICE_ID")
+    @Column(name = "INVOICE_ID", nullable = false, precision = 0)
     public short getInvoiceId() {
         return invoiceId;
     }
@@ -26,7 +27,7 @@ public class Invoice {
     }
 
     @Basic
-    @Column(name = "TYPE")
+    @Column(name = "TYPE", nullable = false, precision = 0)
     public boolean isType() {
         return type;
     }
@@ -36,7 +37,7 @@ public class Invoice {
     }
 
     @Basic
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false, precision = 0)
     public long getPrice() {
         return price;
     }
@@ -46,7 +47,7 @@ public class Invoice {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -56,7 +57,7 @@ public class Invoice {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -66,7 +67,7 @@ public class Invoice {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -101,5 +102,15 @@ public class Invoice {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "USER_ID", nullable = false, precision = 0)
+    public short getUserId() {
+        return userId;
+    }
+
+    public void setUserId(short userId) {
+        this.userId = userId;
     }
 }

@@ -16,9 +16,10 @@ public class History {
     private boolean activeFlag;
     private Time createDate;
     private Time updateDate;
+    private short productId;
 
     @Id
-    @Column(name = "HISTORY_ID")
+    @Column(name = "HISTORY_ID", nullable = false, precision = 0)
     public short getHistoryId() {
         return historyId;
     }
@@ -28,7 +29,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "ACTION_NAME")
+    @Column(name = "ACTION_NAME", nullable = false, length = 100)
     public String getActionName() {
         return actionName;
     }
@@ -38,7 +39,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "TYPE")
+    @Column(name = "TYPE", nullable = false, precision = 0)
     public boolean isType() {
         return type;
     }
@@ -48,7 +49,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "QTY")
+    @Column(name = "QTY", nullable = false, precision = 0)
     public long getQty() {
         return qty;
     }
@@ -58,7 +59,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false, precision = 0)
     public long getPrice() {
         return price;
     }
@@ -68,7 +69,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -78,7 +79,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -88,7 +89,7 @@ public class History {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }
@@ -127,5 +128,15 @@ public class History {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "PRODUCT_ID", nullable = false, precision = 0)
+    public short getProductId() {
+        return productId;
+    }
+
+    public void setProductId(short productId) {
+        this.productId = productId;
     }
 }

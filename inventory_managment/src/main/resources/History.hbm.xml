@@ -5,13 +5,32 @@
 <hibernate-mapping>
 
     <class name="inventory.model.History" table="HISTORY" schema="QLKHO_ADMIN">
-        <id name="historyId" column="HISTORY_ID"/>
-        <property name="actionName" column="ACTION_NAME"/>
-        <property name="type" column="TYPE"/>
-        <property name="qty" column="QTY"/>
-        <property name="price" column="PRICE"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="historyId">
+            <column name="HISTORY_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="actionName">
+            <column name="ACTION_NAME" sql-type="varchar2(100)" length="100"/>
+        </property>
+        <property name="type">
+            <column name="TYPE" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="productId">
+            <column name="PRODUCT_ID" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="qty">
+            <column name="QTY" sql-type="number(11)" precision="11"/>
+        </property>
+        <property name="price">
+            <column name="PRICE" sql-type="number(15)" precision="15"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
     </class>
 </hibernate-mapping>

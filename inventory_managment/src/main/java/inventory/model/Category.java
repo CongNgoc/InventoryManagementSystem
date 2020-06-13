@@ -16,7 +16,7 @@ public class Category {
     private Time updateDate;
 
     @Id
-    @Column(name = "CATEGORY_ID")
+    @Column(name = "CATEGORY_ID", nullable = false, precision = 0)
     public short getCategoryId() {
         return categoryId;
     }
@@ -26,7 +26,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 50)
     public String getName() {
         return name;
     }
@@ -36,7 +36,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 200)
     public String getDescription() {
         return description;
     }
@@ -46,7 +46,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "ACTIVE_FLAG")
+    @Column(name = "ACTIVE_FLAG", nullable = false, precision = 0)
     public boolean isActiveFlag() {
         return activeFlag;
     }
@@ -56,7 +56,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "CREATE_DATE")
+    @Column(name = "CREATE_DATE", nullable = false)
     public Time getCreateDate() {
         return createDate;
     }
@@ -66,7 +66,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "UPDATE_DATE")
+    @Column(name = "UPDATE_DATE", nullable = false)
     public Time getUpdateDate() {
         return updateDate;
     }

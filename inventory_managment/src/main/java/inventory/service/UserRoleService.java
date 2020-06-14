@@ -20,14 +20,9 @@ public class UserRoleService {
         return  userRoleDAO.findAll();
     }
 
-    public List<UserRole> findByProperty(String property , Object value) {
+    public List<UserRole> findUserRoleByProperty(String property , Object value) {
         log.info("Find UserRole by property start!");
         return  userRoleDAO.findByProperty(property, value);
     }
 
-    //DBconnect
-    public List<UserRole> findByUserProperty(String properpy, int value) {
-        log.info("Find UserRole by property use DB Connector!");
-        return userRoleDAO.findByPropertyUser(properpy, value);
-    }
 }

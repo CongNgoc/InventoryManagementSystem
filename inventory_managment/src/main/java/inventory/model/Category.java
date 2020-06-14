@@ -14,6 +14,7 @@ public class Category {
     private boolean activeFlag;
     private Time createDate;
     private Time updateDate;
+    private String code;
 
     @Id
     @Column(name = "CATEGORY_ID", nullable = false, precision = 0)
@@ -102,5 +103,15 @@ public class Category {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "CODE", nullable = true, length = 40)
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

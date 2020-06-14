@@ -19,6 +19,7 @@ public class Menu {
     private Short parentId;
     private Short orderIndex;
     private List<Menu> childList;
+    private String menuIdForHTML;
 
     public String getMenuIdForHTML() {
         return menuIdForHTML;
@@ -27,8 +28,6 @@ public class Menu {
     public void setMenuIdForHTML(String menuIdForHTML) {
         this.menuIdForHTML = menuIdForHTML;
     }
-
-    private String menuIdForHTML;
 
     public List<Menu> getChildList() {
         return childList;

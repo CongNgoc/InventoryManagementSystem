@@ -26,7 +26,7 @@ public class BaseDAOImpl<E> implements BaseDAO<E>{
     }
 
     public E findById(Class<E> e, Serializable id) {
-        log.info("Find by ID ");
+        log.info("Find by ID " + id.getClass());
         return sessionFactory.getCurrentSession().get(e, id);
     }
 

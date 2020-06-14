@@ -59,7 +59,7 @@ public class LoginControler {
         Role role = null;
 
         user = userService.findByProperty("userName", users.getUserName()).get(0);
-        userRole = userRoleService.findByProperty("userId", user.getUserId()).get(0);
+        userRole = userRoleService.findUserRoleByProperty("userId", user.getUserId()).get(0);
         List<Menu> menuList = new ArrayList<>();
         role = roleService.findRoleByProperty("roleId", userRole.getRoleId()).get(0);
         List<Menu> menuChildList = new ArrayList<>();
@@ -98,6 +98,17 @@ public class LoginControler {
         session.setAttribute(Constant.USER_INFO, user);
 
         return "redirect:/index";
+    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "access-denied";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute(Constant.MENU_SESSION);
+        session.removeAttribute(Constant.USER_INFO);
+        return "redirect:/login";
     }
 
     //order_index < =>

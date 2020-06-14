@@ -23,5 +23,8 @@
         <property name="updateDate">
             <column name="UPDATE_DATE" sql-type="date"/>
         </property>
+        <property name="code">
+            <column name="CODE" sql-type="varchar2(40)" length="40" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

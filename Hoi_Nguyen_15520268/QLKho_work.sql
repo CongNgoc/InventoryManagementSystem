@@ -322,7 +322,7 @@ insert into menu(parent_id,url,menu_name,order_index) values (2,'/history','L·ªã
 
 insert into menu(parent_id,url,menu_name,order_index) values (3,'/user/list','Danh s√°ch user',1);
 insert into menu(parent_id,url,menu_name,order_index) values (3,'/menu/list','Danh s√°ch menu',1);
-insert into menu(parent_id,url,menu_name,order_index) values (3,'/role/list','Danh s√°ch quy·ªÅn',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/role/list','Danh s√°ch quy·ª?n',1);
 
 --ROLE TABLE
 INSERT INTO role(ROLE_NAME,DESCRIPTION) VALUES ('admin','Admin of system');
@@ -350,3 +350,11 @@ INSERT INTO auth(ROLE_ID,MENU_ID,PERMISSION) VALUES (1,17,1);
 --add column code to category table
 ALTER TABLE Category
 ADD code VARCHAR2(40);
+
+--INSERT INTO CATEGORY
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('Tr‡ s?a', 'Tr‡ s?a nguyÍn ch?t', '1123222');
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('B·nh mÏ', 'B·nh mÏ nguyÍn ch?t', '1123222');
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('B·nh plan', 'B·nh plan nguyÍn ch?t', '1123222');
+
+select * from CATEGORY;
+

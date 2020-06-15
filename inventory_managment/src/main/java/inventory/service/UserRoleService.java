@@ -14,12 +14,6 @@ public class UserRoleService {
     @Autowired
     private UserRoleDAO<UserRole> userRoleDAO;
 
-    //Sai o day
-    public List<UserRole> findAll(){
-        log.info("Find all UserRole start!");
-        return  userRoleDAO.findAll();
-    }
-
     public List<UserRole> findUserRoleByProperty(String property , Object value) {
         log.info("Find UserRole by property start!");
         return  userRoleDAO.findByProperty(property, value);

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CategoryService {
@@ -36,9 +38,9 @@ public class CategoryService {
         log.info("Delete category" + category.toString());
         categoryDAO.update(category);
     }
-    public List<Category> findAll() {
+    public List<Category> findAll(String queryStr, Map<String, Object> mapParams) {
         log.info("Find all category start!");
-        return categoryDAO.findAll();
+        return categoryDAO.findAll(queryStr, mapParams);
     }
     public List<Category> findCategoryByProperty(String property, Object value) {
         log.info("=====Find by property category start====");
@@ -53,5 +55,20 @@ public class CategoryService {
     public Short getCategorySEQ() {
         log.info("Get category sequence!");
         return categoryDAO.getCategorySEQ();
+    }
+
+    public List<Category> getAllCategory(Category category) {
+        log.info("Get all category");
+        StringBuilder queryString = new StringBuilder();
+        Map<String, Object> mapParams = new HashMap<>();
+        if(category != null) {
+            if(category.getCode() != null) {
+                queryString.append(" AND ( model.code = :code");
+                mapParams.put("code", category.getCode());
+                queryString.append(" OR model.name = :name )");
+                mapParams.put("name", category.getCode());
+            }
+        }
+        return categoryDAO.findAll(queryString.toString(), mapParams);
     }
 }

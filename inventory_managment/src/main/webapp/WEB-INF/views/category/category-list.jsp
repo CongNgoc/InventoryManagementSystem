@@ -13,13 +13,21 @@
 					<div class="clearfix"></div>
 				</div>
 
-
 				<div class="x_content">
 					<div class="container">
-						<a href="<c:url value="/category/add"/>" class="btn btn-app"><i class="fa fa-plus"></i>Add</a>
+						<div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/category/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/list" method="POST">
+								<div class="form-group col-md-9 col-sm-9 col-xs-6">
+									<form:input path="code" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
+								</div>
+
+								<div class="form-group col-md-3 col-sm-3 col-xs-6 col-md-offset-3">
+										<button type="submit" class="btn btn-success">Search</button>
+								</div>
+							</form:form>
+						</div>
 					</div>
-
-
 					<div class="table-responsive">
 						<table class="table table-striped jambo_table bulk_action">
 							<thead>
@@ -29,6 +37,8 @@
 								<th class="column-title">Code</th>
 								<th class="column-title">Name</th>
 								<th class="column-title">Description </th>
+								<th class="column-title">Create date </th>
+								<th class="column-title">Update date </th>
 								<th class="column-title no-link last text-center" colspan="3"><span class="nobr">Action</span>
 								</th>
 							</tr>
@@ -50,17 +60,17 @@
 								<td class=" ">${category.code } </td>
 								<td class=" ">${category.name }</td>
 								<td class=" ">${category.description }</td>
+								<td class=" ">${category.createDate }</td>
+								<td class=" ">${category.updateDate }</td>
 								<td class="text-center"><a href="<c:url value="/category/view/${category.categoryId }"/>" class="btn btn-round btn-default">View</a></td>
 								<td class="text-center"><a href="<c:url value="/category/edit/${category.categoryId }"/>" class="btn btn-round btn-primary">Edit</a></td>
-								<td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${category.categoryId});" class="btn btn-round btn-danger">Delete</a></td>
+								<td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${category.categoryId});" class="btn btn-round btn-danger">Del</a></td>
 								</tr>
 							</c:forEach>
 
 							</tbody>
 						</table>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
@@ -70,6 +80,29 @@
 	function confirmDelete(id){
 		if(confirm('Do you want delete this record?')){
 			window.location.href = '<c:url value="/category/delete/"/>'+id;
+		}
+	}
+	$(document).ready(function(){
+		processMessage();
+	});
+	function processMessage(){
+		var msgSuccess = '${msgSuccess}';
+		var msgError = '${msgError}';
+		if(msgSuccess){
+			new PNotify({
+				title: ' Success',
+				text: msgSuccess,
+				type: 'success',
+				styling: 'bootstrap3'
+			});
+		}
+		if(msgError){
+			new PNotify({
+				title: ' Error',
+				text: msgError,
+				type: 'error',
+				styling: 'bootstrap3'
+			});
 		}
 	}
 </script>

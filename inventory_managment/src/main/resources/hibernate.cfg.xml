@@ -20,8 +20,8 @@
     <mapping resource="ProductInStock.hbm.xml"></mapping>
     <mapping resource="UserRole.hbm.xml"></mapping>
     <mapping resource="Users.hbm.xml"></mapping>
-      <mapping class="inventory.model.Auth"/>
-      <mapping class="inventory.model.Category"/>
+    <mapping class="inventory.model.Auth"/>
+    <mapping class="inventory.model.Category"/>
     <mapping class="inventory.model.History"/>
     <mapping class="inventory.model.Invoice"/>
     <mapping class="inventory.model.InvoiceDetail"/>

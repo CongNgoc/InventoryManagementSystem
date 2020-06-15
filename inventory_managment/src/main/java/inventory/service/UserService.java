@@ -15,10 +15,6 @@ public class UserService {
     @Autowired
     private UserDAO<Users> userDAO;
 
-    public List<Users> findAll() {
-        log.info("Find all users start");
-        return userDAO.findAll();
-    }
     public List<Users> findByProperty(String property, Object value) {
         log.info("Find user by property start ");
         return userDAO.findByProperty(property, value);

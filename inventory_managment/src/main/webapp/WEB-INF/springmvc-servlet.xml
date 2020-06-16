@@ -108,7 +108,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="/message/message"></property>
     </bean>
-
+    <!---->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>

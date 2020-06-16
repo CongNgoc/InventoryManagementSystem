@@ -17,7 +17,7 @@
 					<div class="container">
 						<div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/category/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/list" method="POST">
+							<form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/list" method="POST" accept-charset="UTF-8">
 								<div class="form-group col-md-9 col-sm-9 col-xs-6">
 									<form:input path="code" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
 								</div>
@@ -60,8 +60,8 @@
 								<td class=" ">${category.code } </td>
 								<td class=" ">${category.name }</td>
 								<td class=" ">${category.description }</td>
-								<td class=" ">${category.createDate }</td>
-								<td class=" ">${category.updateDate }</td>
+								<td class=" ">${category.getCreateDate() }</td>
+								<td class=" ">${category.getUpdateDate() }</td>
 								<td class="text-center"><a href="<c:url value="/category/view/${category.categoryId }"/>" class="btn btn-round btn-default">View</a></td>
 								<td class="text-center"><a href="<c:url value="/category/edit/${category.categoryId }"/>" class="btn btn-round btn-primary">Edit</a></td>
 								<td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${category.categoryId});" class="btn btn-round btn-danger">Del</a></td>

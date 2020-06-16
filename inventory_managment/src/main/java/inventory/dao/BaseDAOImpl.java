@@ -26,12 +26,14 @@ public class BaseDAOImpl<E> implements BaseDAO<E>{
         if(queryStr != null && !queryStr.isEmpty()) {
             queryString.append(queryStr);
         }
+//        queryString.append() append order by here
         Query<E> query = sessionFactory.getCurrentSession().createQuery(queryString.toString());
         if(mapParams != null && !mapParams.isEmpty()) {
             for(String key : mapParams.keySet()) {
                 query.setParameter(key, mapParams.get(key));
             }
         }
+
         log.info("====================RUN AT HERE!");
         log.info( "Query find all ====>" +queryString.toString());
         return query.list();

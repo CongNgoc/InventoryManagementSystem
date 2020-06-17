@@ -1,6 +1,7 @@
 package inventory.controler;
 
 import inventory.model.Category;
+import inventory.model.Paging;
 import inventory.service.CategoryService;
 import inventory.util.Constant;
 import inventory.validate.CategoryValidator;
@@ -40,9 +41,17 @@ public class CategoryController {
         }
     }
 
-    @RequestMapping("/category/list")
-    public String showCategoryList(Model model, HttpSession session, @ModelAttribute("searchForm") Category category) {
-        List<Category> categories = categoryService.getAllCategory(category);
+    @RequestMapping(value = {"/category/list", "/category/list/"})
+    public String redirect() {
+        return "redirect:/category/list/1";
+    }
+
+    @RequestMapping(value = "/category/list/{page}")
+    public String showCategoryList(Model model, HttpSession session, @ModelAttribute("searchForm") Category category, @PathVariable("page") int page) {
+        Paging paging = new Paging(5);
+        paging.setIndexPage(page);
+
+        List<Category> categories = categoryService.getAllCategory(category, paging);
         log.info("========RUN AT HERE2");
         if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
             model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
@@ -52,6 +61,7 @@ public class CategoryController {
             model.addAttribute(Constant.MSG_ERROR, session.getAttribute(Constant.MSG_ERROR));
             session.removeAttribute(Constant.MSG_ERROR);
         }
+        model.addAttribute("pageInfo", paging);
         model.addAttribute("categories", categories);
         return "category-list";
     }

@@ -67,9 +67,9 @@
 								<td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${category.categoryId});" class="btn btn-round btn-danger">Del</a></td>
 								</tr>
 							</c:forEach>
-
 							</tbody>
 						</table>
+						<jsp:include page="../layout/paging.jsp"></jsp:include>
 					</div>
 				</div>
 			</div>
@@ -81,6 +81,10 @@
 		if(confirm('Do you want delete this record?')){
 			window.location.href = '<c:url value="/category/delete/"/>'+id;
 		}
+	}
+	function gotoPage(page){
+		$('#searchForm').attr('action','<c:url value="/category/list/"/>'+page);
+		$('#searchForm').submit();
 	}
 	$(document).ready(function(){
 		processMessage();

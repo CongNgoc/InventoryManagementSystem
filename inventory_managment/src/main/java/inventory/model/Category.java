@@ -62,12 +62,6 @@ public class Category {
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
     public Date getCreateDate() {
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        try {
-//            createDate = format.parse(createDate.toString());
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
         return createDate;
     }
 
@@ -78,12 +72,6 @@ public class Category {
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
     public Date getUpdateDate() {
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        try {
-//            updateDate = format.parse(updateDate.toString());
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
         return updateDate;
     }
 

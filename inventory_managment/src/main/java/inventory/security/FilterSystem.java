@@ -19,8 +19,6 @@ public class FilterSystem implements HandlerInterceptor {
     @Autowired
     private UserRoleService userRoleService;
     @Autowired
-    private RoleService roleService;
-    @Autowired
     private AuthService authService;
     @Autowired
     private MenuService menuService;
@@ -51,9 +49,9 @@ public class FilterSystem implements HandlerInterceptor {
         if(url.contains("/index") || url.contains("/logout") || url.contains("/access-denied")) {
             return true;
         }
+        //Duplicate code => optimize
         UserRole userRole = userRoleService.findUserRoleByProperty("userId", users.getUserId()).get(0);
-        Role role = roleService.findRoleByProperty("roleId", userRole.getRoleId()).get(0);
-        List<Auth> authList = authService.findAuthByProperty("roleId", role.getRoleId());
+        List<Auth> authList = authService.findAuthByProperty("roleId", userRole.getRoleId());
 
         for(Auth auth:authList) {
             Menu menu = menuService.findMenuByProperty("menuId", auth.getMenuId()).get(0);

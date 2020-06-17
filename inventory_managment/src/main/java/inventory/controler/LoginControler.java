@@ -29,8 +29,6 @@ public class LoginControler {
     @Autowired
     private LoginValidate loginValidate;
     @Autowired
-    private RoleService roleService;
-    @Autowired
     private AuthService authService;
     @Autowired
     private MenuService menuService;
@@ -56,14 +54,12 @@ public class LoginControler {
         }
         Users user = null;
         UserRole userRole = null;
-        Role role = null;
-
+        //Duplicate code => optimize
         user = userService.findByProperty("userName", users.getUserName()).get(0);
         userRole = userRoleService.findUserRoleByProperty("userId", user.getUserId()).get(0);
         List<Menu> menuList = new ArrayList<>();
-        role = roleService.findRoleByProperty("roleId", userRole.getRoleId()).get(0);
         List<Menu> menuChildList = new ArrayList<>();
-        List<Auth> authList = authService.findAuthByProperty("roleId", role.getRoleId());
+        List<Auth> authList = authService.findAuthByProperty("roleId", userRole.getRoleId());
         for(Auth auth : authList) {
             Menu menu = menuService.findMenuByProperty("menuId", auth.getMenuId()).get(0);
             // MAIN MENU

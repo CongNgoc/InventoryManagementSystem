@@ -10,7 +10,7 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <title>Gentelella Alela! | </title>
+                <title>Inventory Management System</title>
 
                 <!-- Bootstrap -->
                 <link href="<c:url value="/resources/vendors/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet">

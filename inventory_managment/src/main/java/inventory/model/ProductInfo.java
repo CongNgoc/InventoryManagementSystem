@@ -22,6 +22,15 @@ public class ProductInfo {
     private short categoryId;
     private String imgUrl;
     private MultipartFile multipartFile;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public MultipartFile getMultipartFile() {
         return multipartFile;
@@ -150,6 +159,4 @@ public class ProductInfo {
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
     }
-
-
 }

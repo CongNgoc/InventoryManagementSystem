@@ -1,5 +1,6 @@
 package inventory.controler;
 
+import freemarker.ext.beans.HashAdapter;
 import inventory.model.Category;
 import inventory.model.Paging;
 import inventory.model.ProductInfo;
@@ -88,21 +89,21 @@ public class ProductInfoController {
     }
     @GetMapping("/product-info/edit/{id}")
     public String edit(Model model , @PathVariable("id") short id) {
-//        log.info("Edit productInfo with id="+id);
-//        ProductInfo productInfo = productService.findProductInfoById(id);
-//        if(productInfo!=null) {
-//            List<Category> categories = categoryService.getAllCategory(null, null);
-//            Map<String, String> mapCategory = new HashMap<>();
-//            for(Category category : categories) {
-//                mapCategory.put(String.valueOf(category.getCategoryId()), category.getName());
-//            }
-//            productInfo.setCategoryId(categories.getId());
-//            model.addAttribute("mapCategory", mapCategory);
-//            model.addAttribute("titlePage", "Edit ProductInfo");
-//            model.addAttribute("modelForm", productInfo);
-//            model.addAttribute("viewOnly", false);
-//            return "productInfo-action";
-//        }
+        log.info("Edit productInfo with id="+id);
+        ProductInfo productInfo = productService.findProductInfoById(id);
+        if(productInfo!=null) {
+            List<Category> categories = categoryService.getAllCategory(null, null);
+            Map<String, String> mapCategory = new HashMap<>();
+            for(Category category : categories) {
+                mapCategory.put(String.valueOf(category.getCategoryId()), category.getName());
+            }
+            productInfo.setCategoryId(categories.get(0).getCategoryId());
+            model.addAttribute("mapCategory", mapCategory);
+            model.addAttribute("titlePage", "Edit ProductInfo");
+            model.addAttribute("modelForm", productInfo);
+            model.addAttribute("viewOnly", false);
+            return "productInfo-action";
+        }
         return "redirect:/product-info/list";
     }
     @GetMapping("/product-info/view/{id}")
@@ -110,6 +111,8 @@ public class ProductInfoController {
         log.info("View productInfo with id="+id);
         ProductInfo productInfo = productService.findProductInfoById(id);
         if(productInfo!=null) {
+            Category category = categoryService.findByIdCategory(productInfo.getCategoryId());
+            productInfo.setCategory(category);
             model.addAttribute("titlePage", "View ProductInfo");
             model.addAttribute("modelForm", productInfo);
             model.addAttribute("viewOnly", true);

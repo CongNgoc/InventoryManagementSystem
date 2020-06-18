@@ -21,34 +21,36 @@
                             <form:hidden path="updateDate" />
                             <form:hidden path="activeFlag" />
                             <form:hidden path="imgUrl" />
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category Id<span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <form:input path="categoryId" cssClass="form-control col-md-7 col-xs-12" disabled="${viewOnly}" />
-                                    <div class="has-error">
-                                        <form:errors path="categoryId" cssClass="help-block"></form:errors>
-                                    </div>
-                                </div>
-
-<%--                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category <span class="required">*</span>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category Id<span class="required">*</span>--%>
 <%--                                </label>--%>
 <%--                                <div class="col-md-6 col-sm-6 col-xs-12">--%>
-<%--                                    <c:choose>--%>
-<%--                                        <c:when test="${!viewOnly}">--%>
-
-<%--                                            <form:select path="categoryId" cssClass="form-control">--%>
-<%--                                                <form:options items="${mapCategory}" />--%>
-<%--                                            </form:select>--%>
-<%--                                            <div class="has-error">--%>
-<%--                                                <form:errors path="categoryId" cssClass="help-block"></form:errors>--%>
-<%--                                            </div>--%>
-<%--                                        </c:when>--%>
-<%--&lt;%&ndash;                                        <c:otherwise>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                            <form:input path="category.name" disabled="true" cssClass="form-control col-md-7 col-xs-12"/>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                        </c:otherwise>&ndash;%&gt;--%>
-<%--                                    </c:choose>--%>
+<%--                                    <form:input path="categoryId" cssClass="form-control col-md-7 col-xs-12" disabled="${viewOnly}" />--%>
+<%--                                    <div class="has-error">--%>
+<%--                                        <form:errors path="categoryId" cssClass="help-block"></form:errors>--%>
+<%--                                    </div>--%>
 <%--                                </div>--%>
+<%--                    </div> --%>
+                            <%--                                MAP CATEGORY Í HERE--%>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category name<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <c:choose>
+                                        <c:when test="${!viewOnly}">
+
+                                            <form:select path="categoryId" cssClass="form-control">
+                                                <form:options items="${mapCategory}" />
+                                            </form:select>
+                                            <div class="has-error">
+                                                <form:errors path="categoryId" cssClass="help-block"></form:errors>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <form:input path="category.getName()" disabled="true" cssClass="form-control col-md-7 col-xs-12"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
 
                             </div>
 

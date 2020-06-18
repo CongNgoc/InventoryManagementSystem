@@ -1,7 +1,13 @@
 package inventory.model;
 
+import inventory.service.CategoryService;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 @Table(name = "PRODUCT_INFO", schema = "QLKHO_ADMIN", catalog = "")
@@ -11,9 +17,19 @@ public class ProductInfo {
     private String name;
     private String description;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
     private short categoryId;
+    private String imgUrl;
+    private MultipartFile multipartFile;
+
+    public MultipartFile getMultipartFile() {
+        return multipartFile;
+    }
+
+    public void setMultipartFile(MultipartFile multipartFile) {
+        this.multipartFile = multipartFile;
+    }
 
     @Id
     @Column(name = "PRODUCT_INFO_ID", nullable = false, precision = 0)
@@ -67,22 +83,42 @@ public class ProductInfo {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    @Basic
+    @Column(name = "CATEGORY_ID", nullable = false, precision = 0)
+    public short getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(short categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    @Basic
+    @Column(name = "IMG_URL", nullable = true, length = 300)
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override
@@ -115,13 +151,5 @@ public class ProductInfo {
         return result;
     }
 
-    @Basic
-    @Column(name = "CATEGORY_ID", nullable = false, precision = 0)
-    public short getCategoryId() {
-        return categoryId;
-    }
 
-    public void setCategoryId(short categoryId) {
-        this.categoryId = categoryId;
-    }
 }

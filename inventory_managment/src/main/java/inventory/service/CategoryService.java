@@ -59,7 +59,8 @@ public class CategoryService {
     }
 
     public List<Category> getAllCategory(Category category, Paging paging) {
-        log.info("Get all category" + category.getCode());
+//        log.info("Get all category" + category.getCode());
+        log.info("Get all category");
         StringBuilder queryString = new StringBuilder();
         Map<String, Object> mapParams = new HashMap<>();
         if(category != null) {

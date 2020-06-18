@@ -29,5 +29,8 @@
         <property name="updateDate">
             <column name="UPDATE_DATE" sql-type="date"/>
         </property>
+        <property name="imgUrl">
+            <column name="IMG_URL" sql-type="varchar2(300)" length="300" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

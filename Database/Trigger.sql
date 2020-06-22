@@ -7,6 +7,8 @@ AFTER INSERT OR UPDATE OR DELETE ON INVOICE_DETAIL
 FOR EACH ROW
 DECLARE
   price_product PRODUCT_INFO.PRICE%TYPE;
+  type_invoice INVOICE.TYPE%TYPE;
+  quanity_product PRODUCT_IN_STOCK.QUANITY%TYPE;
 BEGIN
   --GET CURRENT PRICE FROM PRODUCT 
   IF(INSERTING) THEN
@@ -16,6 +18,21 @@ BEGIN
     UPDATE INVOICE 
     SET INVOICE.PRICE = PRICE + price_product*:NEW.QUANITY
     WHERE INVOICE_ID = :NEW.INVOICE_ID;
+    
+    --CHECK QUANITY WHEN INSERT INVOICE DETAIL(EXPORT: INVOICE.TYPE = 2)
+    SELECT QUANITY INTO quanity_product
+    FROM PRODUCT_IN_STOCK 
+    WHERE PRODUCT_ID = :NEW.PRODUCT_ID;
+    
+    SELECT INVOICE.TYPE INTO type_invoice
+    FROM INVOICE 
+    WHERE INVOICE_ID = :NEW.INVOICE_ID;
+  
+    IF :NEW.QUANITY > quanity_product OR type_invoice = 2 THEN
+      raise_application_error(-20001,'The quantity of goods in stock is not enough for exporting goods.');
+    END IF;
+    --END CHECK
+    
   END IF;
   IF(UPDATING) THEN
     SELECT PRICE INTO price_product
@@ -64,7 +81,7 @@ WHERE IN_DE_ID = 3;
 --MODIFIED BY: NGUYEN NGOC CONG
 --DESCRIPTION: CREATE TRIGGER TO CHECK QUANITY WHEN INSERT INVOICE DETAIL(EXPORT: INVOICE.TYPE = 2)
 CREATE OR REPLACE TRIGGER CHECK_QUANITY_FOR_EXPORT
-BEFORE INSERT OR UPDATE OF QUANITY ON INVOICE_DETAIL
+BEFORE INSERT OF QUANITY ON INVOICE_DETAIL
 FOR EACH ROW
 DECLARE 
   quanity_product PRODUCT_IN_STOCK.QUANITY%TYPE;
@@ -78,8 +95,8 @@ BEGIN
   FROM INVOICE 
   WHERE INVOICE_ID = :NEW.INVOICE_ID;
 
-  IF :NEW.QUANITY < quanity_product OR type_invoice = 2 THEN
-    raise_application_error(-20101,'The quantity of goods in stock is not enough for exporting goods.');
+  IF :NEW.QUANITY > quanity_product OR type_invoice = 2 THEN
+    raise_application_error(-20001,'The quantity of goods in stock is not enough for exporting goods.');
   END IF;
   
   EXCEPTION 

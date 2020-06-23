@@ -41,6 +41,7 @@
 <%--                                <th class="column-title">Category Id</th>--%>
 <%--                                <th class="column-title">Category name</th>--%>
                                 <th class="column-title">Image</th>
+                                <th class="column-title">Price</th>
                                 <th class="column-title">Create date</th>
                                 <th class="column-title">Update date</th>
                                 <th class="column-title no-link last text-center" colspan="3"><span class="nobr">Action</span></th>
@@ -65,6 +66,7 @@
 <%--                                <td class=" ">${product.categoryId }</td>--%>
 <%--                                <td class=" ">${product.getCategory().name }</td>--%>
                                 <td class=" "><img src="<c:url value="${product.imgUrl}"/>" width="100px" height="100px"/></td>
+                                <td class=" ">${product.price }</td>
                                 <td class=" ">${product.createDate }</td>
                                 <td class=" ">${product.updateDate }</td>
                                 <td class="text-center"><a href="<c:url value="/product-info/view/${product.productInfoId }"/>" class="btn btn-round btn-default">View</a></td>

@@ -127,6 +127,7 @@ public class ProductInfoController {
             if(productInfo.getProductInfoId()!=0) {
                 model.addAttribute("titlePage", "Edit ProductInfo");
             }else {
+                log.info("========esult hasErrors at add productinfo");
                 model.addAttribute("titlePage", "Add ProductInfo");
             }
             List<Category> categories = categoryService.getAllCategory(null, null);
@@ -140,13 +141,15 @@ public class ProductInfoController {
             return "productInfo-action";
 
         }
+        log.info("====save here");
         //Save from here
-        Category category = new Category();
-        category.setCategoryId(productInfo.getCategoryId());
+//        Category category = new Category();
+//        category.setCategoryId(productInfo.getCategoryId());
 //        productInfo.setCategory(category);
         if(productInfo.getProductInfoId()!=0) {
             //Update ProductInfo
             try {
+                log.info("====Update ProductInfo");
                 productService.updateProductInfo(productInfo);
                 session.setAttribute(Constant.MSG_SUCCESS, "Update success!!!");
             } catch (Exception e) {
@@ -159,6 +162,7 @@ public class ProductInfoController {
         }else {
             //Add ProductInfo
             try {
+                log.info("====Insert success!!!");
                 productService.saveProductInfo(productInfo);
                 session.setAttribute(Constant.MSG_SUCCESS, "Insert success!!!");
             } catch (Exception e) {

@@ -21,17 +21,6 @@
                             <form:hidden path="updateDate" />
                             <form:hidden path="activeFlag" />
                             <form:hidden path="imgUrl" />
-<%--                            <div class="form-group">--%>
-<%--                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category Id<span class="required">*</span>--%>
-<%--                                </label>--%>
-<%--                                <div class="col-md-6 col-sm-6 col-xs-12">--%>
-<%--                                    <form:input path="categoryId" cssClass="form-control col-md-7 col-xs-12" disabled="${viewOnly}" />--%>
-<%--                                    <div class="has-error">--%>
-<%--                                        <form:errors path="categoryId" cssClass="help-block"></form:errors>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                    </div> --%>
-                            <%--                                MAP CATEGORY Í HERE--%>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoryId">Category name<span class="required">*</span>
                                 </label>
@@ -47,7 +36,7 @@
                                             </div>
                                         </c:when>
                                         <c:otherwise>
-                                            <form:input path="category.getName()" disabled="true" cssClass="form-control col-md-7 col-xs-12"/>
+                                            <form:input path="category.name" disabled="true" cssClass="form-control col-md-7 col-xs-12"/>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
@@ -71,6 +60,16 @@
                                     <form:input path="name" cssClass="form-control col-md-7 col-xs-12" disabled="${viewOnly}" />
                                     <div class="has-error">
                                         <form:errors path="name" cssClass="help-block"></form:errors>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Price <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <form:input path="price" cssClass="form-control col-md-7 col-xs-12" disabled="${viewOnly}" />
+                                    <div class="has-error">
+                                        <form:errors path="price" cssClass="help-block"></form:errors>
                                     </div>
                                 </div>
                             </div>

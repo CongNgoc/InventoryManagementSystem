@@ -23,6 +23,7 @@ public class ProductInfo {
     private String imgUrl;
     private MultipartFile multipartFile;
     private Category category;
+    private Long price;
 
     public Category getCategory() {
         return category;
@@ -96,6 +97,10 @@ public class ProductInfo {
         return createDate;
     }
 
+    public void setCreateDate(Time createDate) {
+        this.createDate = createDate;
+    }
+
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
@@ -104,6 +109,10 @@ public class ProductInfo {
     @Column(name = "UPDATE_DATE", nullable = false)
     public Date getUpdateDate() {
         return updateDate;
+    }
+
+    public void setUpdateDate(Time updateDate) {
+        this.updateDate = updateDate;
     }
 
     public void setUpdateDate(Date updateDate) {
@@ -158,5 +167,15 @@ public class ProductInfo {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "PRICE", nullable = true, precision = 0)
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
     }
 }

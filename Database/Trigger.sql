@@ -88,3 +88,19 @@ SELECT * FROM PRODUCT_IN_STOCK;
 
 
 
+--MODIFY DATE: 23/06/2020
+--MODIFIED BY: NGUYEN NGOC CONG
+--DESCRIPTION: CHECK EMAIL VALIDATION
+WITH t AS
+  (SELECT 'brucewayne1981@gmail.com' email FROM dual
+  UNION ALL 
+  SELECT '@gmail.com' FROM dual
+  UNION ALL
+  SELECT '1Tonystark.1980@gmail.com' FROM dual
+  UNION ALL
+  SELECT 'peter@parker.1989@gmail.com' FROM dual
+  )
+SELECT *
+FROM t
+WHERE REGEXP_LIKE (EMAIL, '^[A-Za-z]+[A-Za-z0-9.]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$');
+

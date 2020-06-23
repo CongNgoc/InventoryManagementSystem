@@ -8,9 +8,6 @@
         <id name="productInfoId">
             <column name="PRODUCT_INFO_ID" sql-type="number(5)" precision="5"/>
         </id>
-        <property name="categoryId">
-            <column name="CATEGORY_ID" sql-type="number(5)" precision="5"/>
-        </property>
         <property name="code">
             <column name="CODE" sql-type="varchar2(30)" length="30"/>
         </property>
@@ -31,6 +28,9 @@
         </property>
         <property name="imgUrl">
             <column name="IMG_URL" sql-type="varchar2(300)" length="300" not-null="true"/>
+        </property>
+        <property name="price">
+            <column name="PRICE" sql-type="number(15)" precision="15" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

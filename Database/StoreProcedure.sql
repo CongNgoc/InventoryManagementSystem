@@ -166,4 +166,96 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE(v_res);
 END;
 
+--MODIFY DATE: 25/06/2020
+--MODIFIED BY: NGUYEN NGOC CONG
+--DESCRIPTION: GET AMOUNT FROM LIST ORDER
+CREATE OR REPLACE TYPE info_goods_receipt AS OBJECT (v_product_id NUMBER(5,0), v_quantity NUMBER(5,0));
+CREATE OR REPLACE TYPE list_info_goods_receipt IS TABLE OF info_goods_receipt;
+
+CREATE OR REPLACE FUNCTION get_amount(v_l_info_gr list_info_goods_receipt)
+RETURN NUMBER
+AS 
+  v_amount NUMBER;
+  v_price PRODUCT_INFO.PRICE%TYPE;
+BEGIN
+  v_amount := 0;
+  FOR ind IN v_l_info_gr.FIRST..v_l_info_gr.LAST 
+  LOOP
+    --GET PRICE FROM PRODUCT ID
+    SELECT PRICE INTO v_price
+    FROM PRODUCT_INFO
+    WHERE PRODUCT_INFO_ID = v_l_info_gr(ind).v_product_id;
+    v_amount := v_amount + v_l_info_gr(ind).v_quantity * v_price;
+  END LOOP;
+  
+  RETURN v_amount;
+  
+  EXCEPTION 
+    WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('NO_DATA_FOUND!');
+     WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('OTHERS EXCEPTION!');
+END;
+
+
+--MODIFY DATE: 25/06/2020
+--MODIFIED BY: NGUYEN NGOC CONG
+--DESCRIPTION: ADD A GOOD RECEIPT INVOICE TO INVOICE TABLE
+CREATE OR REPLACE PROCEDURE add_goods_receipt_invoice(v_l_info_gr list_info_goods_receipt, 
+                                    v_invoice_id NUMBER, v_type NUMBER, v_user_id NUMBER, v_code VARCHAR2)
+AS 
+  v_mount NUMBER;
+BEGIN
+  --INSERT INTO INVOICE
+  v_mount := get_amount(v_l_info_gr);
+  INSERT INTO INVOICE(INVOICE_ID, TYPE, USER_ID, PRICE, CODE) VALUES(v_invoice_id, v_type, v_user_id, v_mount, v_code);
+
+  FOR ind IN v_l_info_gr.FIRST..v_l_info_gr.LAST 
+  LOOP  
+    --INSERT INTO INVOICE DETAIL
+    INSERT INTO INVOICE_DETAIL(INVOICE_ID, PRODUCT_ID, QUANITY) 
+    VALUES (v_invoice_id, v_l_info_gr(ind).v_product_id, v_l_info_gr(ind).v_quantity);
+    
+  END LOOP;
+END;
+
+--TEST add_goods_receipt_invoice
+DECLARE 
+  v_l_info_gr list_info_goods_receipt := list_info_goods_receipt(
+    info_goods_receipt( 21, 5),
+    info_goods_receipt( 22, 3 )
+  );
+  v_type NUMBER; 
+  v_user_id NUMBER; 
+  v_code VARCHAR2(30);
+BEGIN
+  v_type := 1;
+  v_user_id := 1;
+  v_code := 'HD002';
+  add_goods_receipt_invoice(v_l_info_gr, v_type, v_user_id, v_code);
+END;
+
+--MODIFY DATE: 25/06/2020
+--MODIFIED BY: NGUYEN NGOC CONG
+--DESCRIPTION: SLEEP SYSTEM
+CREATE OR REPLACE PROCEDURE sleep (in_time number)
+AS
+  v_now date;
+BEGIN
+  SELECT SYSDATE
+  INTO v_now
+  FROM DUAL;
+  LOOP
+    EXIT WHEN v_now + (in_time * (1/86400)) <= SYSDATE;
+  END LOOP;
+END;
+
+EXEC sleep(10);
+
+select * from invoice;
+select * from invoice_detail;
+
+alter table INVOICE drop constraint SYS_C009758;
+alter table INVOICE add constraint SYS_C009758 CHECK(TYPE IN(0, 1)) enable novalidate;
+
 

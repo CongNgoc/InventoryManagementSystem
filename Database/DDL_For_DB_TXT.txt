@@ -83,7 +83,7 @@ CREATE TABLE INVOICE_DETAIL(
 
 CREATE TABLE INVOICE(
   INVOICE_ID NUMBER(5) NOT NULL PRIMARY KEY,
-  TYPE NUMBER(1) CHECK(TYPE IN(0, 1)) NOT NULL,
+  TYPE NUMBER(1) CHECK(TYPE IN(1,2)) NOT NULL,
   USER_ID NUMBER(5) NOT NULL,
   PRICE NUMBER (15) NOT NULL,
   ACTIVE_FLAG NUMBER(1) DEFAULT 1  CHECK(ACTIVE_FLAG IN(0,1)) NOT NULL,
@@ -317,24 +317,24 @@ SELECT * FROM MENU;
 insert into menu(MENU_ID, url,menu_name) values (0,'/','Root');
 insert into menu(parent_id,url,menu_name,order_index) values (0,'/product','S?n ph?m',1);
 insert into menu(parent_id,url,menu_name,order_index) values (0,'/stock','Kho',2);
-insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (3, 0,'/management','Quản lý',3);
+insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (3, 0,'/management','Quáº£n lÃ½',3);
 
-insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (4, 1,'/product-info/list','Danh sách sản phẩm',2);
-insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/list','Danh sách category',1);
-insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/edit','Sửa',-1);
+insert into menu(MENU_ID, parent_id,url,menu_name,order_index) values (4, 1,'/product-info/list','Danh sÃ¡ch sáº£n pháº©m',2);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/list','Danh sÃ¡ch category',1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/edit','Sá»­a',-1);
 insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/view','Xem',-1);
-insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/add','Thêm mới',-1);
-insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/save','Lưu',-1);
-insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/delete','Xoá',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/add','ThÃªm má»›i',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/save','LÆ°u',-1);
+insert into menu(parent_id,url,menu_name,order_index) values (1,'/category/delete','XoÃ¡',-1);
 
-insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-recept/list','Danh sách nhập kho',1);
-insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-issue/list','Danh sách xuất kho',2);
-insert into menu(parent_id,url,menu_name,order_index) values (2,'/product-in-stock/list','Sản phẩm trong kho',3);
-insert into menu(parent_id,url,menu_name,order_index) values (2,'/history','Lịch sử kho',4);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-recept/list','Danh sÃ¡ch nháº­p kho',1);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/goods-issue/list','Danh sÃ¡ch xuáº¥t kho',2);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/product-in-stock/list','Sáº£n pháº©m trong kho',3);
+insert into menu(parent_id,url,menu_name,order_index) values (2,'/history','Lá»‹ch sá»­ kho',4);
 
-insert into menu(parent_id,url,menu_name,order_index) values (3,'/user/list','Danh sách user',1);
-insert into menu(parent_id,url,menu_name,order_index) values (3,'/menu/list','Danh sách menu',1);
-insert into menu(parent_id,url,menu_name,order_index) values (3,'/role/list','Danh sách quy�?n',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/user/list','Danh sÃ¡ch user',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/menu/list','Danh sÃ¡ch menu',1);
+insert into menu(parent_id,url,menu_name,order_index) values (3,'/role/list','Danh sÃ¡ch quyá»?n',1);
 
 --ROLE TABLE
 INSERT INTO role(ROLE_NAME,DESCRIPTION) VALUES ('admin','Admin of system');
@@ -364,9 +364,9 @@ ALTER TABLE Category
 ADD code VARCHAR2(40);
 
 --INSERT INTO CATEGORY
-INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('Tr� s?a', 'Tr� s?a nguy�n ch?t', '1123222');
-INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('B�nh m�', 'B�nh m� nguy�n ch?t', '1123222');
-INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('B�nh plan', 'B�nh plan nguy�n ch?t', '1123222');
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('Trà s?a', 'Trà s?a nguyên ch?t', '1123222');
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('Bánh mì', 'Bánh mì nguyên ch?t', '1123222');
+INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('Bánh plan', 'Bánh plan nguyên ch?t', '1123222');
 
 
 --MODIFY DATE: 17/06/2020
@@ -375,8 +375,14 @@ INSERT INTO CATEGORY(NAME, DESCRIPTION, CODE) VALUES('B�nh plan', 'B�nh plan ngu
 ALTER TABLE PRODUCT_INFO
 ADD IMG_URL VARCHAR2(300);
 
-INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(42, 'B�nh plan', 'B�nh plan nguy�n ch?t', 'A2376');
-INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(42, 'B�nh plan tr?ng mu?i', 'B�nh plan nguy�n ch?t', 'A21376');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(42, 'Bánh plan', 'Bánh plan nguyên ch?t', 'A2376');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(42, 'Bánh plan tr?ng mu?i', 'Bánh plan nguyên ch?t', 'A21376');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(61, 'Tôn Hòa Bình', 'Tôn Hòa Bình chất lượng cao', 'TONHB1');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(61, 'Tôn Đông Á', 'Tôn Đông Á chất lượng cao', 'TONDA1');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(62, 'Xi măng Hòa Tiên', 'Xi măng Hòa Bình chất lượng cao', 'XMHT11');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(62, 'Xi măng Hoàng Thạch', 'Xi măng Hoàng Thạch chất lượng cao', 'XMHT11');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(62, 'Xi măng Nghi Sơn', 'Xi măng Hòa Bình chất lượng cao', 'XMNS11');
+INSERT INTO PRODUCT_INFO(CATEGORY_ID, NAME, DESCRIPTION, CODE) VALUES(62, 'Xi măng Xuân Thành', 'Xi măng Xuân Thành chất lượng cao', 'XMXT11');
 
 --MODIFY DATE: 22/06/2020
 --MODIFY BY: NGUYEN NGOC CONG
@@ -400,9 +406,3 @@ CREATE TABLE HISTORY(
   UPDATE_DATE DATE NOT NULL
 )
 
-
---MODIFY DATE: 25/06/2020
---MODIFY BY: NGUYEN NGOC CONG
---MODIFY column TYPE 
-alter table INVOICE drop constraint SYS_C009758;
-alter table INVOICE add constraint SYS_C009758 CHECK(TYPE IN(0, 1)) enable novalidate;

@@ -91,19 +91,20 @@ SELECT * FROM PRODUCT_IN_STOCK;
 --MODIFY DATE: 23/06/2020
 --MODIFIED BY: NGUYEN NGOC CONG
 --DESCRIPTION: CHECK EMAIL VALIDATION
-WITH t AS
-  (SELECT 'brucewayne1981@gmail.com' email FROM dual
-  UNION ALL 
-  SELECT '@gmail.com' FROM dual
-  UNION ALL
-  SELECT '1Tonystark.1980@gmail.com' FROM dual
-  UNION ALL
-  SELECT 'peter@parker.1989@gmail.com' FROM dual
-  )
-SELECT *
-FROM t
-WHERE REGEXP_LIKE (EMAIL, '^[A-Za-z]+[A-Za-z0-9.]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$');
+CREATE OR REPLACE TRIGGER validator_email
+BEFORE INSERT OR UPDATE ON USERS
+FOR EACH ROW
+BEGIN
+  IF (REGEXP_LIKE (:NEW.EMAIL , '^[A-Za-z]+[A-Za-z0-9.]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')) THEN
+    DBMS_OUTPUT.PUT('Email validate success!');
+  ELSE
+    raise_application_error(-20001,'Email incorrect!');
+  END IF;
+  
+END;
 
+INSERT INTO USERS(FIRST_NAME, LAST_NAME, BIRTHDAY,USER_NAME, PASSWORD, EMAIL) 
+VALUES('Huyen','Nguyen',SYSDATE,'employee01', 'pass01', 'employee@gmail.com');
 
 --MODIFY DATE: 25/06/2020
 --MODIFIED BY: NGUYEN NGOC CONG

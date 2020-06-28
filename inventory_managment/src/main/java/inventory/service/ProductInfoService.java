@@ -6,6 +6,7 @@ import inventory.model.Paging;
 import inventory.model.ProductInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -16,9 +17,9 @@ import java.util.Map;
 @Service
 public class ProductInfoService {
     private static final Logger log = Logger.getLogger(ProductInfo.class);
-    private Date sysDate = new Date();
     @Autowired
     private ProductInfoDAO<ProductInfo> productInfoDAO;
+    private Date sysDate = new Date();
 
     public void saveProductInfo(ProductInfo productInfo) throws Exception{
         log.info("Save Product Info!" + productInfo.toString());
@@ -65,4 +66,9 @@ public class ProductInfoService {
         }
         return productInfoDAO.findAll(queryString.toString(), mapParams, paging);
     }
+
+    public List<ProductInfo> getAllProduct() {
+        return productInfoDAO.getAllProduct();
+    }
+
 }

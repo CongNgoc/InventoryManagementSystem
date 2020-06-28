@@ -2,17 +2,50 @@ package inventory.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Table(name = "INVOICE_DETAIL", schema = "QLKHO_ADMIN", catalog = "")
 public class InvoiceDetail {
     private short quanity;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
     private short inDeId;
     private short productId;
     private short invoiceId;
+    private ProductInfo productInfo;
+    private Long amount;
+    static Map<Short, InvoiceDetail> mapQuantityForProduct = new HashMap<>();
+
+    public static Map<Short, InvoiceDetail> getMapQuantityForProduct() {
+        return mapQuantityForProduct;
+    }
+
+    public static void setMapQuantityForProduct(Map<Short, InvoiceDetail> mapQuantityForProduct) {
+        InvoiceDetail.mapQuantityForProduct = mapQuantityForProduct;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
+    public Long getAmount() {
+        if(productInfo != null && productInfo.getProductInfoId() != 0 && quanity >= 0) {
+            this.amount = this.quanity * productInfo.getPrice();
+        }
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
 
     @Basic
     @Column(name = "QUANITY", nullable = false, precision = 0)
@@ -36,21 +69,21 @@ public class InvoiceDetail {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

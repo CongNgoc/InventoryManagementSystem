@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 public class Invoice {
@@ -12,9 +13,28 @@ public class Invoice {
     private boolean type;
     private long price;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
     private short userId;
+    private Date toDate;
+    private Date fromDate;
+    private String code;
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
 
     @Id
     @Column(name = "INVOICE_ID", nullable = false, precision = 0)
@@ -58,21 +78,21 @@ public class Invoice {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -112,5 +132,15 @@ public class Invoice {
 
     public void setUserId(short userId) {
         this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "CODE", nullable = true, length = 30)
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

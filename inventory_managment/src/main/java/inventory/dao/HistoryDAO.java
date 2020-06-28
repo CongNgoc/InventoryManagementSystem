@@ -1,4 +1,4 @@
 package inventory.dao;
 
-public class HistoryDAO {
+public interface HistoryDAO<E> extends BaseDAO<E>{
 }

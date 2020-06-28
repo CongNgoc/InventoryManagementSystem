@@ -12,6 +12,15 @@ public class ProductInStock {
     private Time createDate;
     private Time updateDate;
     private short productId;
+    private ProductInfo productInfo;
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
 
     @Id
     @Column(name = "PRODUCT_STOCK_ID", nullable = false, precision = 0)

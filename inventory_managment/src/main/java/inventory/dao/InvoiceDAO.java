@@ -1,4 +1,5 @@
 package inventory.dao;
 
-public interface InvoiceDAO {
+public interface InvoiceDAO<E> extends BaseDAO<E>{
+    public Short getInvoiceSEQ();
 }

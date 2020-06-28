@@ -23,7 +23,7 @@
         </a>
         </li>
         <li><a href="javascript:;">Help</a></li>
-        <li><a href="/login"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+        <li><a href="/inventory_managment_war/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
         </ul>
         </li>
 

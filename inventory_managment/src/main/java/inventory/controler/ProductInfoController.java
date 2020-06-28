@@ -58,6 +58,11 @@ public class ProductInfoController {
         Paging paging = new Paging(5);
         paging.setIndexPage(page);
         List<ProductInfo> products = productService.getAllProductInfo(productInfo,paging);
+        //set category for each product_info
+        for(int i = 0; i <products.size(); i++){
+            Category category = categoryService.findByIdCategory(products.get(i).getCategoryId());
+            products.get(i).setCategory(category);
+        }
 
         if(session.getAttribute(Constant.MSG_SUCCESS)!=null ) {
             model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));

@@ -54,6 +54,7 @@ public class HistoryService {
     public void save(InvoiceDetail invoiceDetail, String action, boolean type) {
         History history = new History();
         history.setProductInfo(invoiceDetail.getProductInfo());
+        history.setHistoryId(getHistorySEQ());
         history.setProductId(invoiceDetail.getProductId());
         history.setActionName(action);
         history.setPrice(invoiceDetail.getProductInfo().getPrice());
@@ -61,6 +62,11 @@ public class HistoryService {
         history.setQty(invoiceDetail.getQuanity());
         history.setCreateDate(sys_date);
         history.setUpdateDate(sys_date);
+        history.setActiveFlag(true);
         historyDAO.save(history);
+    }
+
+    public Short getHistorySEQ() {
+        return historyDAO.getHistorySEQ();
     }
 }

@@ -4,8 +4,11 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.awt.*;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Invoice {
@@ -19,6 +22,15 @@ public class Invoice {
     private Date toDate;
     private Date fromDate;
     private String code;
+    private List<InvoiceDetail> invoiceDetails = new ArrayList<InvoiceDetail>();
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
 
     public Date getToDate() {
         return toDate;

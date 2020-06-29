@@ -44,13 +44,17 @@ public class InvoiceService {
         invoice.setPrice(getTotalPayment(InvoiceDetail.getMapQuantityForProduct()));
         invoice.setCreateDate(sys_date);
         invoice.setUpdateDate(sys_date);
+        invoice.setActiveFlag(true);
         invoiceDAO.save(invoice);
 
         for(Map.Entry<Short, InvoiceDetail> entry : mapQuantityForProduct.entrySet()) {
+            Short invoiceDetailSEQ = invoiceDetailDAO.getInvoiceDetailSEQ();
             InvoiceDetail invoiceDetail = entry.getValue();
+            invoiceDetail.setInDeId(invoiceDetailSEQ);
             invoiceDetail.setInvoiceId(INVOICE_SEQ);
             invoiceDetail.setCreateDate(sys_date);
             invoiceDetail.setUpdateDate(sys_date);
+            invoiceDetail.setActiveFlag(true);
 
             invoiceDetailDAO.save(invoiceDetail);
             historyService.save(invoiceDetail, Constant.ACTION_ADD, true);

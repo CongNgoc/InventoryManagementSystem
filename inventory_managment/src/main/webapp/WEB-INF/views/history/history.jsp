@@ -16,7 +16,7 @@
 
                 <div class="x_content">
                     <div class="container" style="padding: 10px;">
-                        <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/product-in-stock/list/1" method="POST">
+                        <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/history/list/1" method="POST">
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 <form:input path="productInfo.code" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
                             </div>
@@ -92,8 +92,7 @@
 </div>
 <script type="text/javascript">
     function gotoPage(page) {
-        $('#searchForm').attr('action',
-            '<c:url value="/history/list/"/>' + page);
+        $('#searchForm').attr('action', '<c:url value="/history/list/"/>' + page);
         $('#searchForm').submit();
     }
     $(document).ready(function() {

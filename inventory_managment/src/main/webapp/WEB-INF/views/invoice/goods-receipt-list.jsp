@@ -69,7 +69,7 @@
                                 <th class="column-title">Price</th>
                                 <th class="column-title">Create Date</th>
                                 <th class="column-title">Update Date</th>
-                                <th class="column-title no-link last text-center" colspan="3"><span class="nobr">Action</span></th>
+                                <th class="column-title no-link last text-center"><span class="nobr">Action</span></th>
                             </tr>
                             </thead>
 
@@ -91,8 +91,6 @@
                                 <td class="date">${invoice.updateDate}</td>
 
                                 <td class="text-center"><a href="<c:url value="/goods-receipt/view/${invoice.invoiceId }"/>" class="btn btn-round btn-default">View</a></td>
-                                <td class="text-center"><a href="<c:url value="/goods-receipt/edit/${invoice.invoiceId }"/>" class="btn btn-round btn-primary">Edit</a></td>
-                                <td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${invoice.invoiceId});" class="btn btn-round btn-danger">Delete</a></td>
                                 </tr>
                             </c:forEach>
 

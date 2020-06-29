@@ -45,7 +45,10 @@
         <put-attribute name="body"
                        value="/WEB-INF/views/invoice/goods-receipt-add.jsp"></put-attribute>
     </definition>
-
+    <definition name="goods-receipt-view" extends="master">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/invoice/invoice-view.jsp"></put-attribute>
+    </definition>
     <definition name="goods-issue-list" extends="master">
         <put-attribute name="body"
                        value="/WEB-INF/views/invoice/goods-issue-list.jsp"></put-attribute>
@@ -56,6 +59,6 @@
     </definition>
     <definition name="goods-issue-view" extends="master">
         <put-attribute name="body"
-                       value="/WEB-INF/views/invoice/goods-issue-view.jsp"></put-attribute>
+                       value="/WEB-INF/views/invoice/invoice-view.jsp"></put-attribute>
     </definition>
 </tiles-definitions>

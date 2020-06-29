@@ -91,7 +91,7 @@
                             </tr>
                             </tfoot>
                         </table>
-                        <%--                        <jsp:include page="../layout/paging.jsp"></jsp:include>--%>
+<%--                                                <jsp:include page="../layout/paging.jsp"></jsp:include>--%>
                     </div>
                 </div>
             </div>
@@ -99,16 +99,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('#bnt_add_in_de').click(function () {
-        var product_id = $("#productId").val();
-        var quantity = $("quanity").val();
-        console.log(product_id + " " + quantity);
-    })
-    function confirmDelete(id){
-        if(confirm('Do you want delete this record?')){
-            window.location.href = '<c:url value="/goods-issue/delete/"/>'+id;
-        }
-    }
     function gotoPage(page){
         $('#searchForm').attr('action','<c:url value="/goods-issue/list/"/>'+page);
         $('#searchForm').submit();

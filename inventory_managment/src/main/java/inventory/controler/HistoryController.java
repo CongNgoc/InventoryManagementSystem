@@ -1,5 +1,6 @@
 package inventory.controler;
 
+import inventory.model.Category;
 import inventory.model.History;
 import inventory.model.Paging;
 import inventory.model.ProductInfo;
@@ -34,15 +35,25 @@ public class HistoryController {
     public String redirect() {
         return "redirect:/history/list/1";
     }
+
     @RequestMapping(value="/history/list/{page}")
     public String list(Model model, @ModelAttribute("searchForm") History history, @PathVariable("page") int page) {
         Paging paging = new Paging(5);
         paging.setIndexPage(page);
+        if(history == null) {
+            log.info("history is null");
+            history = new History();
+        }
         List<History> histories = historyService.getAllHistoty(history, paging);
+
         //set ProductInfo for each ProductInStock
         for (int i = 0; i < histories.size(); i++) {
             ProductInfo productInfo =  productInfoService.findProductInfoById(histories.get(i).getProductId());
-            productInfo.setCategory(categoryService.findByIdCategory(productInfo.getCategoryId()));
+            log.info("===PRODUCT_ID " + productInfo.getProductInfoId());
+            Category category = categoryService.findByIdCategory(productInfo.getCategoryId());
+            productInfo.setCategory(category);
+            log.info("===CATEGORY_NAME " + category.getName());
+            log.info("===CATEGORY_ID " + category.getCategoryId());
             histories.get(i).setProductInfo(productInfo);
         }
 

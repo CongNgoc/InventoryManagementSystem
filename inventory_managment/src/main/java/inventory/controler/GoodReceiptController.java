@@ -111,6 +111,25 @@ public class GoodReceiptController {
         return "redirect:/goods-receipt/list/1";
     }
 
+    @GetMapping("/goods-receipt/view/{id}")
+    public String view(Model model , @PathVariable("id") short id) {
+        log.info("View invoice with id="+id);
+        Invoice invoice = invoiceService.findInvoiceById(id);
+        List<InvoiceDetail> invoiceDetails = invoiceService.findInvoiceDetailByProperty("invoiceId", id);
+        for (int i = 0; i<invoiceDetails.size(); i++) {
+            ProductInfo productInfo = productInfoService.findProductInfoById(invoiceDetails.get(i).getProductId());
+            invoiceDetails.get(i).setProductInfo(productInfo);
+        }
+        log.info("===List invoiceDetails size " + invoiceDetails.size());
+        if(invoice!=null) {
+            model.addAttribute("titlePage", "View Goods Receipt");
+            model.addAttribute("invoice", invoice);
+            model.addAttribute("invoiceDetails", invoiceDetails);
+            return "goods-receipt-view";
+        }
+        return "redirect:/goods-receipt/list";
+    }
+
     private Map<String, String> initMapProduct(){
         List<ProductInfo> productInfos =productInfoService.getAllProduct();
         Map<String, String> mapProduct = new HashMap<>();

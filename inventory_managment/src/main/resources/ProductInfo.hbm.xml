@@ -32,5 +32,8 @@
         <property name="price">
             <column name="PRICE" sql-type="number(15)" precision="15" not-null="true"/>
         </property>
+        <property name="categoryId">
+            <column name="CATEGORY_ID" sql-type="number(15)" precision="15" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

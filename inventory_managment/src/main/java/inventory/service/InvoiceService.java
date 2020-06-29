@@ -31,6 +31,10 @@ public class InvoiceService {
         return invoiceDAO.findByProperty(property, value);
     }
 
+    public Invoice findInvoiceById(Short id) {
+        return invoiceDAO.findById(Invoice.class, id);
+    }
+
     public void saveInvoice(Invoice invoice, boolean type_invoice, Map<Short, InvoiceDetail> mapQuantityForProduct){
         Short INVOICE_SEQ = invoiceDAO.getInvoiceSEQ();
         invoice.setInvoiceId(INVOICE_SEQ);

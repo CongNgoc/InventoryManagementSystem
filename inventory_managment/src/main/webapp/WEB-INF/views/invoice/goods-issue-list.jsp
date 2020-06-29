@@ -66,10 +66,10 @@
                             <tr class="headings">
                                 <th class="column-title">#</th>
                                 <th class="column-title">Code</th>
-                                <th class="column-title">Price</th>
+                                <th class="column-title">Total Payment</th>
                                 <th class="column-title">Create Date</th>
                                 <th class="column-title">Update Date</th>
-                                <th class="column-title no-link last text-center" colspan="3"><span class="nobr">Action</span></th>
+                                <th class="column-title no-link last text-center"><span class="nobr">Action</span></th>
                             </tr>
                             </thead>
 
@@ -91,8 +91,6 @@
                                 <td class="date">${invoice.updateDate}</td>
 
                                 <td class="text-center"><a href="<c:url value="/goods-issue/view/${invoice.invoiceId }"/>" class="btn btn-round btn-default">View</a></td>
-                                <td class="text-center"><a href="<c:url value="/goods-issue/edit/${invoice.invoiceId }"/>" class="btn btn-round btn-primary">Edit</a></td>
-                                <td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${invoice.invoiceId});" class="btn btn-round btn-danger">Delete</a></td>
                                 </tr>
                             </c:forEach>
 
@@ -106,11 +104,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    function confirmDelete(id){
-        if(confirm('Do you want delete this record?')){
-            window.location.href = '<c:url value="/goods-issue/delete/"/>'+id;
-        }
-    }
     function gotoPage(page){
         $('#searchForm').attr('action','<c:url value="/goods-issue/list/"/>'+page);
         $('#searchForm').submit();

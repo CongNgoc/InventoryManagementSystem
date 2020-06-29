@@ -110,6 +110,25 @@ public class GoodsIssueController {
         return "redirect:/goods-issue/list/1";
     }
 
+    @GetMapping("/goods-issue/view/{id}")
+    public String view(Model model , @PathVariable("id") short id) {
+        log.info("View invoice with id="+id);
+        Invoice invoice = invoiceService.findInvoiceById(id);
+        List<InvoiceDetail> invoiceDetails = invoiceService.findInvoiceDetailByProperty("invoiceId", id);
+        for (int i = 0; i<invoiceDetails.size(); i++) {
+            ProductInfo productInfo = productInfoService.findProductInfoById(invoiceDetails.get(i).getProductId());
+            invoiceDetails.get(i).setProductInfo(productInfo);
+        }
+        log.info("===List invoiceDetails size " + invoiceDetails.size());
+        if(invoice!=null) {
+            model.addAttribute("titlePage", "View Goods Issue");
+            model.addAttribute("invoice", invoice);
+            model.addAttribute("invoiceDetails", invoiceDetails);
+            return "goods-issue-view";
+        }
+        return "redirect:/goods-issue/list";
+    }
+
     private Map<String, String> initMapProduct(){
         List<ProductInfo> productInfos =productInfoService.getAllProduct();
         Map<String, String> mapProduct = new HashMap<>();

@@ -31,7 +31,7 @@ public class InvoiceService {
         return invoiceDAO.findByProperty(property, value);
     }
 
-    public void saveInvoice(Invoice invoice, Map<Short, InvoiceDetail> mapQuantityForProduct){
+    public void saveInvoice(Invoice invoice, boolean type_invoice, Map<Short, InvoiceDetail> mapQuantityForProduct){
         Short INVOICE_SEQ = invoiceDAO.getInvoiceSEQ();
         invoice.setInvoiceId(INVOICE_SEQ);
         String code_random = getCodeRandom(10);
@@ -40,7 +40,7 @@ public class InvoiceService {
         };
 
         invoice.setCode(code_random);
-        invoice.setType(true);
+        invoice.setType(type_invoice);
         invoice.setPrice(getTotalPayment(InvoiceDetail.getMapQuantityForProduct()));
         invoice.setCreateDate(sys_date);
         invoice.setUpdateDate(sys_date);
@@ -65,6 +65,9 @@ public class InvoiceService {
         StringBuilder queryStr = new StringBuilder();
         Map<String, Object> mapParams = new HashMap<>();
         if(invoice != null) {
+            queryStr.append(" and model.type=:type");
+            mapParams.put("type", invoice.isType());
+
             if(invoice.getCode() != null && !invoice.getCode().isEmpty()) {
                 logger.info("====find getAllInvoice with code");
                 queryStr.append(" and model.code =:code ");

@@ -6,7 +6,7 @@ public class Constant {
     public static final String MSG_SUCCESS ="msgSuccess";
     public static final String MSG_ERROR = "msgError";
     public static final Boolean TYPE_GOODS_RECEIPT = true;
-    public static final Boolean TYPE_GOODS_ISSUES = true;
+    public static final Boolean TYPE_GOODS_ISSUES = false;
     public static final Integer TYPE_ALL = 0;
     public static final String ACTION_ADD = "Add";
     public static final String ACTION_EDIT = "Edit";

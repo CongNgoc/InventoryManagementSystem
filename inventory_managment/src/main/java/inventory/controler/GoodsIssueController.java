@@ -13,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.RegEx;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GoodReceiptController {
+public class GoodsIssueController {
     @Autowired
     private InvoiceService invoiceService;
     @Autowired
@@ -45,20 +43,21 @@ public class GoodReceiptController {
         }
     }
 
-    @GetMapping(value= {"/goods-receipt/list","/goods-receipt/list/"})
+    @GetMapping(value= {"/goods-issue/list","/goods-issue/list/"})
     public String redirect() {
-        log.info("redirect:/goods-receipt/list/1");
-        return "redirect:/goods-receipt/list/1";
+        log.info("redirect:/goods-issue/list/list/1");
+        return "redirect:/goods-issue/list/1";
     }
 
-    @RequestMapping(value="/goods-receipt/list/{page}")
+    @RequestMapping(value="/goods-issue/list/{page}")
     public String showInvoiceList(Model model, HttpSession session , @ModelAttribute("searchForm") Invoice invoice, @PathVariable("page") int page) {
         Paging paging = new Paging(5);
         paging.setIndexPage(page);
         if(invoice==null) {
             invoice = new Invoice();
         }
-        invoice.setType(Constant.TYPE_GOODS_RECEIPT);
+
+        invoice.setType(Constant.TYPE_GOODS_ISSUES);
         List<Invoice> invoices = invoiceService.getAllInvoice(invoice,paging);
         if(session.getAttribute(Constant.MSG_SUCCESS)!=null ) {
             model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
@@ -70,10 +69,10 @@ public class GoodReceiptController {
         }
         model.addAttribute("pageInfo", paging);
         model.addAttribute("invoices", invoices);
-        return "goods-receipt-list";
+        return "goods-issue-list";
     }
 
-    @RequestMapping("/goods-receipt/add")
+    @RequestMapping("/goods-issue/add")
     public String addGoodReceipt(Model model, HttpSession session , @ModelAttribute("searchForm") InvoiceDetail invoiceDetail) {
         log.info(" addGoodReceipt /goods-receipt/add");
         if (invoiceDetail != null && invoiceDetail.getProductId() != 0) {
@@ -91,13 +90,13 @@ public class GoodReceiptController {
             model.addAttribute("mapQuantity", invoiceDetail.getMapQuantityForProduct());
         }
 
-        model.addAttribute("titlePage", "Add Goods Receipt");
+        model.addAttribute("titlePage", "Add Goods Issue");
         model.addAttribute("searchForm", new InvoiceDetail());
         model.addAttribute("mapProduct",initMapProduct());
-        return "goods-receipt-add";
+        return "goods-issue-add";
     }
 
-    @RequestMapping("/goods-receipt/save")
+    @RequestMapping("/goods-issue/save")
     public String saveInvoice(Model model, HttpSession session){
         log.info(" saveInvoice /goods-receipt/save");
         log.info(" mapQuanity size" + InvoiceDetail.getMapQuantityForProduct().size());
@@ -106,9 +105,9 @@ public class GoodReceiptController {
         Users users = (Users) session.getAttribute(Constant.USER_INFO);
         invoice.setUserId(users.getUserId());
 
-        invoiceService.saveInvoice(invoice, Constant.TYPE_GOODS_RECEIPT, InvoiceDetail.getMapQuantityForProduct());
+        invoiceService.saveInvoice(invoice, Constant.TYPE_GOODS_ISSUES, InvoiceDetail.getMapQuantityForProduct());
         InvoiceDetail.setMapQuantityForProduct(new HashMap<Short, InvoiceDetail>());
-        return "redirect:/goods-receipt/list/1";
+        return "redirect:/goods-issue/list/1";
     }
 
     private Map<String, String> initMapProduct(){
@@ -119,7 +118,4 @@ public class GoodReceiptController {
         }
         return mapProduct;
     }
-
-
-
 }

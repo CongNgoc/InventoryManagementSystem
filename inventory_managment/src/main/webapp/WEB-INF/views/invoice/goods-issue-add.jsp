@@ -18,13 +18,13 @@
                 <div class="x_content">
                     <div class="container">
                         <div>
-                            <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/goods-receipt/add" method="POST">
+                            <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/goods-issue/add" method="POST">
                                 <div class="col-md-9 col-sm-9 col-xs-6">
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="form-group col-md-6 col-sm-6 col-xs12">
                                             <label class="col-md-3 col-sm-3 col-xs-12" for="productInfo.code">Product Code</label>
                                             <div class="col-md-9 col-sm-9 col-xs-12" >
-                                                <form:input path="productInfo.code" placeholder="Enter product code" cssClass="form-control col-md-7 col-xs-12" servletRelativeAction="/goods-receipt/add" method="POST" />
+                                                <form:input path="productInfo.code" placeholder="Enter product code" cssClass="form-control col-md-7 col-xs-12" servletRelativeAction="/goods-issue/add" method="POST" />
                                             </div>
                                         </div>
 
@@ -114,11 +114,11 @@
                             </tr>
                             </tfoot>
                         </table>
-<%--                        <jsp:include page="../layout/paging.jsp"></jsp:include>--%>
+                        <%--                        <jsp:include page="../layout/paging.jsp"></jsp:include>--%>
                     </div>
 
                     <div class="add_invoice">
-                        <form:form cssClass="form-horizontal form-label-left" servletRelativeAction="/goods-receipt/save" method="POST">
+                        <form:form cssClass="form-horizontal form-label-left" servletRelativeAction="/goods-issue/save" method="POST">
                             <div class="form-group col-md-3 col-sm-3 col-xs-6">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                     <button id="bnt_add_invoice" type="submit" class="btn btn-success">Add to Invoice</button>
@@ -139,11 +139,11 @@
     })
     function confirmDelete(id){
         if(confirm('Do you want delete this record?')){
-            window.location.href = '<c:url value="/goods-receipt/delete/"/>'+id;
+            window.location.href = '<c:url value="/goods-issue/delete/"/>'+id;
         }
     }
     function gotoPage(page){
-        $('#searchForm').attr('action','<c:url value="/goods-receipt/list/"/>'+page);
+        $('#searchForm').attr('action','<c:url value="/goods-issue/list/"/>'+page);
         $('#searchForm').submit();
     }
     $(document).ready(function(){

@@ -112,6 +112,7 @@ public class GoodReceiptController {
         invoice.setUserId(users.getUserId());
 
         invoiceService.saveInvoice(invoice, InvoiceDetail.getMapQuantityForProduct());
+        InvoiceDetail.setMapQuantityForProduct(new HashMap<Short, InvoiceDetail>());
         return "redirect:/goods-receipt/list/1";
     }
 

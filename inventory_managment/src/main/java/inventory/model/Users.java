@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,14 +14,14 @@ public class Users {
     private short userId;
     private String firstName;
     private String lastName;
-    private Time birthday;
+    private Date birthday;
     private String userName;
     private String password;
     private String email;
     private String phone;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
 
     @Id
     @Column(name = "USER_ID", nullable = false, precision = 0)
@@ -54,11 +55,11 @@ public class Users {
 
     @Basic
     @Column(name = "BIRTHDAY", nullable = false)
-    public Time getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Time birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -114,21 +115,21 @@ public class Users {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

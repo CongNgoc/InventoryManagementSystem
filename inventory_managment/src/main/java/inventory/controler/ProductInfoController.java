@@ -46,7 +46,6 @@ public class ProductInfoController {
         }
     }
     @RequestMapping(value= {"/product-info/list","/product-info/list/"})
-
     public String redirect() {
         log.info("====redirect to /product-info/list/{page}");
         return "redirect:/product-info/list/1";

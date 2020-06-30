@@ -125,13 +125,13 @@ public class ProductInfoController {
         return "redirect:/product-info/list";
     }
     @PostMapping("/product-info/save")
-    public String save(Model model, @ModelAttribute("modelForm") @Validated ProductInfo productInfo, BindingResult result, HttpSession session) {
+    public String save(Model model, @ModelAttribute("modelForm") ProductInfo productInfo, BindingResult result, HttpSession session) {
         if(result.hasErrors()) {
             log.info("====result hasErrors");
             if(productInfo.getProductInfoId()!=0) {
                 model.addAttribute("titlePage", "Edit ProductInfo");
             }else {
-                log.info("========esult hasErrors at add productinfo");
+                log.info("========result hasErrors at add productinfo");
                 model.addAttribute("titlePage", "Add ProductInfo");
             }
             List<Category> categories = categoryService.getAllCategory(null, null);
@@ -147,9 +147,9 @@ public class ProductInfoController {
         }
         log.info("====save here");
         //Save from here
-//        Category category = new Category();
-//        category.setCategoryId(productInfo.getCategoryId());
-//        productInfo.setCategory(category);
+        Category category = new Category();
+        category.setCategoryId(productInfo.getCategoryId());
+        productInfo.setCategory(category);
         if(productInfo.getProductInfoId()!=0) {
             //Update ProductInfo
             try {

@@ -4,6 +4,7 @@ import inventory.model.Paging;
 import inventory.model.Users;
 import inventory.service.UserService;
 import inventory.util.Constant;
+import inventory.validate.UserValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,6 +24,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserValidator userValidator;
     static final Logger log = Logger.getLogger(ProductInfoController.class);
     @InitBinder
     private void initBinder(WebDataBinder binder) {
@@ -31,9 +34,9 @@ public class UserController {
         }
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-//        if(binder.getTarget().getClass()== Users.class) {
-//            binder.setValidator(productInfoValidator);
-//        }
+        if(binder.getTarget().getClass()== Users.class) {
+            binder.setValidator(userValidator);
+        }
     }
 
     @GetMapping(value= {"/user/list","/user/list/"})
@@ -59,7 +62,7 @@ public class UserController {
         log.info("add User!");
         model.addAttribute("titlePage", "Add Users");
         model.addAttribute("viewOnly", false);
-        model.addAttribute("searchForm", new Users());
+        model.addAttribute("modelForm", new Users());
         return "user-action";
     }
 
@@ -90,7 +93,7 @@ public class UserController {
     }
 
     @PostMapping("/user/save")
-    public String save(Model model, @ModelAttribute("modelForm") Users users, BindingResult result, HttpSession session) {
+    public String save(Model model, @ModelAttribute("modelForm") @Validated Users users, BindingResult result, HttpSession session) {
         log.info("===== save User");
         if(result.hasErrors()) {
             if(users.getUserId()!=0) {

@@ -25,23 +25,13 @@ public class HistoryService {
         StringBuilder queryStr = new StringBuilder();
         Map<String, Object> mapParams = new HashMap<>();
         if(history!=null) {
-            if(history.getProductInfo()!=null) {
-                if(!StringUtils.isEmpty(history.getProductInfo().getCategory().getName()) ) {
-                    queryStr.append(" and model.productInfo.category.name like :cateName");
-                    mapParams.put("cateName","%"+history.getProductInfo().getCategory().getName()+"%");
-                }
-                if(!StringUtils.isEmpty(history.getProductInfo().getCode())) {
-                    queryStr.append(" and model.productInfo.code like :code");
-                    mapParams.put("code", "%"+history.getProductInfo().getCode()+"%");
-                }
-                if( !StringUtils.isEmpty(history.getProductInfo().getName()) ) {
-                    queryStr.append(" and model.productInfo.name like :name");
-                    mapParams.put("name", "%"+history.getProductInfo().getName()+"%");
-                }
-            }
             if( !StringUtils.isEmpty(history.getActionName()) ) {
                 queryStr.append(" and model.actionName like :actionName");
                 mapParams.put("actionName", "%"+history.getActionName()+"%");
+                queryStr.append(" and model.productInfo.code like :code");
+                mapParams.put("code", "%"+history.getProductInfo().getCode()+"%");
+                queryStr.append(" and model.productInfo.name like :name");
+                mapParams.put("name", "%"+history.getProductInfo().getName()+"%");
             }
             if(history.isType()) {
                 queryStr.append(" and model.type = :type");

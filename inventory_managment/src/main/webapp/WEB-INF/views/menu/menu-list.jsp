@@ -8,19 +8,16 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Product Info List</h2>
-
+                    <h2>Menu List</h2>
                     <div class="clearfix"></div>
                 </div>
-
-
                 <div class="x_content">
                     <div class="container">
-                        <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/product-info/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
+                        <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/user/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/product-info/list/1" method="POST" accept-charset="UTF-8">
                                 <div class="form-group col-md-9 col-sm-9 col-xs-6">
-                                    <form:input path="code" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
+                                    <form:input path="menuName" placeholder="Enter menu name or url to search" cssClass="form-control col-md-7 col-xs-12" />
                                 </div>
 
                                 <div class="form-group col-md-3 col-sm-3 col-xs-6 col-md-offset-3">
@@ -36,12 +33,10 @@
                             <tr class="headings">
                                 <th class="column-title">#</th>
                                 <th class="column-title">Id</th>
-                                <th class="column-title">Code</th>
-                                <th class="column-title">Name</th>
-<%--                                <th class="column-title">Category Id</th>--%>
-<%--                                <th class="column-title">Category name</th>--%>
-<%--                                <th class="column-title">Image</th>--%>
-                                <th class="column-title">Price</th>
+                                <th class="column-title">Menu name</th>
+                                <th class="column-title">URL</th>
+                                <th class="column-title">Order Index</th>
+                                <th class="column-title">Parent Id</th>
                                 <th class="column-title">Create date</th>
                                 <th class="column-title">Update date</th>
                                 <th class="column-title no-link last text-center" colspan="3"><span class="nobr">Action</span></th>
@@ -49,7 +44,7 @@
                             </thead>
 
                             <tbody>
-                            <c:forEach items="${products}" var="product" varStatus="loop">
+                            <c:forEach items="${usersList}" var="user" varStatus="loop">
 
                                 <c:choose>
                                     <c:when test="${loop.index%2==0 }">
@@ -60,18 +55,16 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <td class=" ">${pageInfo.getOffset()+loop.index+1}</td>
-                                <td class=" ">${product.productInfoId }</td>
-                                <td class=" ">${product.code }</td>
-                                <td class=" ">${product.name }</td>
-<%--                                <td class=" ">${product.categoryId }</td>--%>
-<%--                                <td class=" ">${product.getCategory().name }</td>--%>
-<%--                                <td class=" "><img src="<c:url value="${product.imgUrl}"/>" width="100px" height="100px"/></td>--%>
-                                <td class=" ">${product.price }</td>
-                                <td class=" ">${product.createDate }</td>
-                                <td class=" ">${product.updateDate }</td>
-                                <td class="text-center"><a href="<c:url value="/product-info/view/${product.productInfoId }"/>" class="btn btn-round btn-default">View</a></td>
-                                <td class="text-center"><a href="<c:url value="/product-info/edit/${product.productInfoId }"/>" class="btn btn-round btn-primary">Edit</a></td>
-                                <td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${product.productInfoId});" class="btn btn-round btn-danger">Delete</a></td>
+                                <td class=" ">${user.userId}</td>
+                                <td class=" ">${user.firstName}</td>
+                                <td class=" ">${user.lastName}</td>
+                                <td class=" ">${user.birthday}</td>
+                                <td class=" ">${user.userName}</td>
+                                <td class=" ">${user.email}</td>
+                                <td class=" ">${user.phone}</td>
+                                <td class="text-center"><a href="<c:url value="/user/view/${user.userId}"/>" class="btn btn-round btn-default">View</a></td>
+                                <td class="text-center"><a href="<c:url value="/user/edit/${user.userId}"/>" class="btn btn-round btn-primary">Edit</a></td>
+                                <td class="text-center"><a href="javascript:void(0);" onclick="confirmDelete(${user.userId});" class="btn btn-round btn-danger">Delete</a></td>
                                 </tr>
                             </c:forEach>
 
@@ -87,11 +80,11 @@
 <script type="text/javascript">
     function confirmDelete(id){
         if(confirm('Do you want delete this record?')){
-            window.location.href = '<c:url value="/product-info/delete/"/>'+id;
+            window.location.href = '<c:url value="/user/delete/"/>'+id;
         }
     }
     function gotoPage(page){
-        $('#searchForm').attr('action','<c:url value="/product-info/list/"/>'+page);
+        $('#searchForm').attr('action','<c:url value="/user/list/"/>'+page);
         $('#searchForm').submit();
     }
     $(document).ready(function(){

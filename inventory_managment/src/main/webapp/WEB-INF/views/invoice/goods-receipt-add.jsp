@@ -121,7 +121,7 @@
                         <form:form cssClass="form-horizontal form-label-left" servletRelativeAction="/goods-receipt/save" method="POST">
                             <div class="form-group col-md-3 col-sm-3 col-xs-6">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button id="bnt_add_invoice" type="submit" class="btn btn-success">Add to Invoice</button>
+                                    <button id="bnt_add_invoice" type="submit" class="btn btn-success">Add Invoice</button>
                                 </div>
                             </div>
                         </form:form>

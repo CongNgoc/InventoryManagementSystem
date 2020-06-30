@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
 @Service
 public class UserService {
     final static Logger log = Logger.getLogger(UserService.class);
+    private Date sys_date = new Date();
 
     @Autowired
     private UserDAO<Users> userDAO;
@@ -47,11 +49,16 @@ public class UserService {
 
     public void saveUser(Users user) {
         log.info("save User");
+        user.setUserId(userDAO.getUserSEQ());
+        user.setActiveFlag(true);
+        user.setCreateDate(sys_date);
+        user.setUpdateDate(sys_date);
         userDAO.save(user);
     }
 
     public void updateUser(Users user) {
         log.info("update User");
+        user.setUpdateDate(sys_date);
         userDAO.update(user);
     }
 
@@ -59,6 +66,7 @@ public class UserService {
     {
         log.info("delete User");
         user.setActiveFlag(false);
+        user.setUpdateDate(sys_date);
         userDAO.update(user);
     }
 

@@ -4,11 +4,14 @@ import inventory.dao.ProductInfoDAO;
 import inventory.model.Category;
 import inventory.model.Paging;
 import inventory.model.ProductInfo;
+import inventory.util.ConfigLoader;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Date;
@@ -23,14 +26,22 @@ public class ProductInfoService {
 
     public void saveProductInfo(ProductInfo productInfo) throws Exception{
         log.info("Save Product Info!" + productInfo.toString());
+        productInfo.setActiveFlag(true);
         productInfo.setCreateDate(sysDate);
         productInfo.setUpdateDate(sysDate);
-        productInfo.setImgUrl("/upload/" + productInfo.getMultipartFile().getOriginalFilename());
-        log.info("===GetOriginalFilename" + productInfo.getMultipartFile().getOriginalFilename());
+//        String fileName = System.currentTimeMillis()+"_" + productInfo.getMultipartFile().getOriginalFilename();
+//        processUploadFile(productInfo.getMultipartFile(), fileName);
+//        productInfo.setImgUrl("/upload/" + fileName);
+//        log.info("===GetOriginalFilename" + fileName);
         productInfoDAO.save(productInfo);
     }
     public void updateProductInfo(ProductInfo productInfo) throws Exception{
         log.info("Update Product info!" + productInfo.toString());
+//        if(!productInfo.getMultipartFile().getOriginalFilename().isEmpty()) {
+//            String fileName = System.currentTimeMillis()+"_" + productInfo.getMultipartFile().getOriginalFilename();
+//            processUploadFile(productInfo.getMultipartFile(), fileName);
+//            productInfo.setImgUrl("/upload/" + fileName);
+//        }
         productInfo.setUpdateDate(sysDate);
         productInfoDAO.update(productInfo);
     }
@@ -69,6 +80,17 @@ public class ProductInfoService {
 
     public List<ProductInfo> getAllProduct() {
         return productInfoDAO.getAllProduct();
+    }
+
+    private void processUploadFile(MultipartFile multipartFile, String fileName) throws IllegalStateException, IOException {
+        if(!multipartFile.getOriginalFilename().isEmpty()) {
+            File dir = new File(ConfigLoader.getInstance().getValue("upload.location"));
+            if(!dir.exists()) {
+                dir.mkdirs();
+            }
+            File file = new File(ConfigLoader.getInstance().getValue("upload.location"),fileName);
+            multipartFile.transferTo(file);
+        }
     }
 
 }

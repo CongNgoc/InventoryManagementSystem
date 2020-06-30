@@ -18,7 +18,7 @@
                     <div class="container" style="padding: 10px;">
                         <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/history/list/1" method="POST">
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                <form:input path="productInfo.code" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
+                                <form:input path="actionName" placeholder="Enter code or name to search" cssClass="form-control col-md-7 col-xs-12" />
                             </div>
 
                             <div class="form-group col-md-3 col-sm-3 col-xs-12">
@@ -43,8 +43,8 @@
                                 <th class="column-title">Name</th>
                                 <th class="column-title">Qty</th>
                                 <th class="column-title">Price</th>
-<%--                                <th class="column-title">Type</th>--%>
-                                <th class="column-title">Action</th>
+                                <th class="column-title">Type</th>
+<%--                                <th class="column-title">Action</th>--%>
                                 <th class="column-title">Create date</th>
                                 <th class="column-title">Update date</th>
                             </tr>
@@ -67,15 +67,15 @@
                                 <td class=" ">${history.productInfo.name }</td>
                                 <td class="">${history.qty}</td>
                                 <td class="">${history.price }</td>
-<%--                                <c:choose>--%>
-<%--                                    <c:when test="${history.type==1}">--%>
-<%--                                        <td>Goods Receipt</td>--%>
-<%--                                    </c:when>--%>
-<%--                                    <c:otherwise>--%>
-<%--                                        <td>Goods Issues</td>--%>
-<%--                                    </c:otherwise>--%>
-<%--                                </c:choose>--%>
-                                <td>${histoy.actionName}</td>
+                                <c:choose>
+                                    <c:when test="${history.type==true}">
+                                        <td>Goods Receipt</td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td>Goods Issues</td>
+                                    </c:otherwise>
+                                </c:choose>
+<%--                                <td>${histoy.actionName}</td>--%>
                                 <td class="">${history.createDate}</td>
                                 <td class="">${history.updateDate }</td>
                                 </tr>

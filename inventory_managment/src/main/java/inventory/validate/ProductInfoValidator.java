@@ -1,5 +1,6 @@
 package inventory.validate;
 
+import org.apache.commons.io.FilenameUtils;
 import inventory.model.ProductInfo;
 import inventory.service.ProductInfoService;
 import org.apache.log4j.Logger;
@@ -12,9 +13,9 @@ import java.util.List;
 
 @Component
 public class ProductInfoValidator implements Validator {
-    private static final Logger logger = Logger.getLogger(ProductInfoValidator.class);
     @Autowired
     private ProductInfoService productInfoService;
+    private static final Logger logger = Logger.getLogger(ProductInfoValidator.class);
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -25,12 +26,13 @@ public class ProductInfoValidator implements Validator {
     public void validate(Object target, Errors errors) {
         logger.info("validate ProductInfo!");
         ProductInfo productInfo = (ProductInfo) target;
+        logger.info("validate ProductInfo!");
         ValidationUtils.rejectIfEmpty(errors, "code", "msg.required");
         ValidationUtils.rejectIfEmpty(errors, "name", "msg.required");
         ValidationUtils.rejectIfEmpty(errors, "description", "msg.required");
-        if(productInfo.getProductInfoId() != 0) {
-            ValidationUtils.rejectIfEmpty(errors, "multipartFile", "msg.required");
-        }
+//        if(productInfo.getProductInfoId() != 0) {
+//            ValidationUtils.rejectIfEmpty(errors, "multipartFile", "msg.required");
+//        }
         if(productInfo.getCode() != null) {
             List<ProductInfo> results = productInfoService.findByProperty("code", productInfo.getCode());
             if (results != null && !results.isEmpty()) {
@@ -38,10 +40,7 @@ public class ProductInfoValidator implements Validator {
                     if (results.get(0).getProductInfoId() != productInfo.getProductInfoId()) {
                         errors.rejectValue("code", "msg.code.exist");
                     }
-                } else {
-                    errors.rejectValue("code", "msg.code.exist");
                 }
-
             }
         }
 //        if (!productInfo.getMultipartFile().getOriginalFilename().isEmpty()) {

@@ -2,6 +2,8 @@ package inventory.dao;
 
 import inventory.controler.ConnectDB;
 import inventory.model.Users;
+import org.hibernate.query.Query;
+import org.hibernate.type.StandardBasicTypes;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,5 +51,13 @@ public class UserDAOImpl extends BaseDAOImpl<Users> implements UserDAO<Users> {
             e.printStackTrace();
         }
         return users;
+    }
+
+    @Override
+    public Short getUserSEQ() {
+        Query query = sessionFactory.getCurrentSession().createNativeQuery("select USERS_SEQ.nextval as num from dual").
+                addScalar("num", StandardBasicTypes.SHORT);;
+
+        return ((Short) query.uniqueResult()).shortValue();
     }
 }

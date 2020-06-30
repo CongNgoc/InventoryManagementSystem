@@ -82,17 +82,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <c:if test="${!viewOnly }">
-                                <div class="form-group">
-                                    <label for="multipartFile" class="control-label col-md-3 col-sm-3 col-xs-12">Image Upload</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <form:input path="multipartFile" cssClass="form-control col-md-7 col-xs-12" type="file" />
-                                        <div class="has-error">
-                                            <form:errors path="multipartFile" cssClass="help-block"></form:errors>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:if>
+<%--                            <c:if test="${!viewOnly }">--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <label for="multipartFile" class="control-label col-md-3 col-sm-3 col-xs-12">Image Upload</label>--%>
+<%--                                    <div class="col-md-6 col-sm-6 col-xs-12">--%>
+<%--                                        <form:input path="multipartFile" cssClass="form-control col-md-7 col-xs-12" type="file" />--%>
+<%--                                        <div class="has-error">--%>
+<%--                                            <form:errors path="multipartFile" cssClass="help-block"></form:errors>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </c:if>--%>
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

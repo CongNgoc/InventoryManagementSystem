@@ -16,7 +16,7 @@
                     <div class="x_content">
                         <br />
                         <form:form modelAttribute="modelForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/user/save" method="POST">
-                            <form:hidden path="userId" />
+<%--                            <form:hidden path="userId" />--%>
                             <form:hidden path="createDate" />
                             <form:hidden path="updateDate" />
                             <form:hidden path="activeFlag" />

@@ -100,7 +100,7 @@ public class CategoryController {
         return "redirect:/category/list";
     }
     @PostMapping("/category/save")
-    public String save(Model model, @ModelAttribute("modelForm") @Validated Category category, BindingResult result, HttpSession session) {
+    public String save(Model model, @ModelAttribute("modelForm") Category category, BindingResult result, HttpSession session) {
         log.info("===== save Category");
         if(result.hasErrors()) {
             if(category.getCategoryId()!=0) {

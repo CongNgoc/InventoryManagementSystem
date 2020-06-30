@@ -44,4 +44,26 @@ public class UserService {
         }
         return userDAO.findAll(queryStr.toString(), mapParams, paging);
     }
+
+    public void saveUser(Users user) {
+        log.info("save User");
+        userDAO.save(user);
+    }
+
+    public void updateUser(Users user) {
+        log.info("update User");
+        userDAO.update(user);
+    }
+
+    public void deleteUser(Users user)
+    {
+        log.info("delete User");
+        user.setActiveFlag(false);
+        userDAO.update(user);
+    }
+
+    public Users findUserById(Short id) {
+        log.info("find User by Id " + id);
+        return userDAO.findById(Users.class, id);
+    }
 }

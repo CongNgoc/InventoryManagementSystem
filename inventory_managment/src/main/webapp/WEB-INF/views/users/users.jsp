@@ -16,7 +16,7 @@
 
                 <div class="x_content">
                     <div class="container">
-                        <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/product-info/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
+                        <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/user/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/product-info/list/1" method="POST" accept-charset="UTF-8">
                                 <div class="form-group col-md-9 col-sm-9 col-xs-6">

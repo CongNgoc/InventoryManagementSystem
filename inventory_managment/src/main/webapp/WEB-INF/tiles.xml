@@ -66,4 +66,8 @@
         <put-attribute name="body"
                        value="/WEB-INF/views/users/users.jsp"></put-attribute>
     </definition>
+    <definition name="user-action" extends="master">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/users/users-action.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>

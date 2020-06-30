@@ -16,7 +16,7 @@
 					<div class="x_content">
 						<br />
 						<form:form modelAttribute="modelForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/save" method="POST">
-<%--							<form:hidden path="categoryId" />--%>
+							<form:hidden path="categoryId" />
 							<form:hidden path="createDate" />
 							<form:hidden path="activeFlag" />
 							<div class="form-group">

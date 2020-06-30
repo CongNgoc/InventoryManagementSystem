@@ -29,7 +29,7 @@ public class GoodsIssueController {
     @Autowired
     private ProductInfoService productInfoService;
 
-    static final Logger log = Logger.getLogger(GoodReceiptController.class);
+    static final Logger log = Logger.getLogger(GoodsIssueController.class);
 
     @InitBinder
     private void initBinder(WebDataBinder binder) {

@@ -2,7 +2,7 @@
              pageEncoding="UTF-8"%>
         <footer>
         <div class="pull-right">
-        Inventory Management - copyright by Tedu
+        Inventory Management - Copyright by Cong Hoi
         </div>
         <div class="clearfix"></div>
         </footer>

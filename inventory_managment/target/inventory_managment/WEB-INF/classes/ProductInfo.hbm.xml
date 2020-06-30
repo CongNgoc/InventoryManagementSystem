@@ -5,12 +5,35 @@
 <hibernate-mapping>
 
     <class name="inventory.model.ProductInfo" table="PRODUCT_INFO" schema="QLKHO_ADMIN">
-        <id name="productInfoId" column="PRODUCT_INFO_ID"/>
-        <property name="code" column="CODE"/>
-        <property name="name" column="NAME"/>
-        <property name="description" column="DESCRIPTION"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="productInfoId">
+            <column name="PRODUCT_INFO_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="code">
+            <column name="CODE" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <property name="name">
+            <column name="NAME" sql-type="varchar2(50)" length="50"/>
+        </property>
+        <property name="description">
+            <column name="DESCRIPTION" sql-type="varchar2(200)" length="200" not-null="true"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
+        <property name="imgUrl">
+            <column name="IMG_URL" sql-type="varchar2(300)" length="300" not-null="true"/>
+        </property>
+        <property name="price">
+            <column name="PRICE" sql-type="number(15)" precision="15" not-null="true"/>
+        </property>
+        <property name="categoryId">
+            <column name="CATEGORY_ID" sql-type="number(15)" precision="15" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

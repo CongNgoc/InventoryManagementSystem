@@ -6,7 +6,98 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a673685-1c8c-4de0-87b2-f29342ab17f1" name="Default Changelist" comment="" />
+    <list default="true" id="0a673685-1c8c-4de0-87b2-f29342ab17f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/inventory/controler/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/role/role-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7aac7f43-d30b-4b28-a61f-da76e8b96822.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7aac7f43-d30b-4b28-a61f-da76e8b96822.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inventory_managment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inventory_managment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/controler/GoodsIssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/controler/GoodsIssueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/controler/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/controler/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/controler/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/model/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu/menu-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu/menu-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/users.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Auth.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Auth.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Category.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Category.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/History.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/History.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Invoice.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Invoice.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/InvoiceDetail.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/InvoiceDetail.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/inventory_managment.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ProductInStock.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ProductInStock.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ProductInfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ProductInfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Role.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Role.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserRole.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserRole.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Users.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Users.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/controler/LoginControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/controler/LoginControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/controler/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/controler/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/dao/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/dao/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/dao/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/History.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Invoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/InvoiceDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/InvoiceDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/ProductInStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/ProductInStock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/ProductInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/ProductInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/UserRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/model/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/model/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/inventory/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/inventory/util/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Auth.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Auth.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Category.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Category.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/History.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/History.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Invoice.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Invoice.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/InvoiceDetail.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/InvoiceDetail.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Menu.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Menu.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/ProductInStock.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/ProductInStock.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/ProductInfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/ProductInfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Role.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Role.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/UserRole.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/UserRole.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Users.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/Users.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/controler/LoginControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/controler/LoginControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/controler/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/controler/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/History.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Invoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/InvoiceDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/InvoiceDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/ProductInStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/ProductInStock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/ProductInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/ProductInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/UserRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/model/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/classes/inventory/util/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/springmvc-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/tiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/tiles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/master-layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/master-layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/sidebar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/top-nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/views/layout/top-nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/inventory_managment/message/message.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/inventory_managment/message/message.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,24 +119,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost_qlkho" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost_qlkho" type="feb32156:DbDataSourceImpl" />
-        <item name="QLKHO_ADMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost_qlkho" type="feb32156:DbDataSourceImpl" />
-        <item name="QLKHO_ADMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost_qlkho" type="feb32156:DbDataSourceImpl" />
-        <item name="QLKHO_ADMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="MENU: table" type="942f455b:OraImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -56,12 +129,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Jsp File" />
         <option value="Tag Library Descriptor" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -71,6 +147,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1c4UB97ZPglvmCNhwUiItYLhDI6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -80,21 +157,22 @@
     <property name="DatabaseDriversLRU" value="oracle" />
     <property name="JPA.DatabaseSchemaImportDialog" value="7aac7f43-d30b-4b28-a61f-da76e8b96822" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/sql/role.sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/role" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.20229885" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\InventoryManagementSystem\inventory_managment\src\main\webapp\WEB-INF\views\role" />
+      <recent name="D:\Projects\InventoryManagementSystem\inventory_managment\src\main\webapp\WEB-INF\views\menu" />
+      <recent name="D:\Projects\InventoryManagementSystem\inventory_managment\src\main\webapp\WEB-INF\views\users" />
       <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\java\sql" />
       <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\resources" />
-      <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\java\inventory" />
-      <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\webapp\resources" />
-      <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\webapp\WEB-INF" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="inventory.model" />
@@ -102,6 +180,7 @@
       <recent name="inventory.model.mapping" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\InventoryManagementSystem\inventory_managment\src\main\webapp\WEB-INF\views\users" />
       <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\resources" />
       <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\java\inventory\model\mapping" />
       <recent name="C:\Users\15520\IdeaProjects\inventory_managment\inventory_managment\src\main\webapp\WEB-INF\views" />
@@ -275,6 +354,14 @@
       <workItem from="1590958125456" duration="605000" />
       <workItem from="1590959429005" duration="598000" />
       <workItem from="1591081771883" duration="7917000" />
+      <workItem from="1593415526677" duration="10870000" />
+      <workItem from="1593441168251" duration="5761000" />
+      <workItem from="1593482395070" duration="3740000" />
+      <workItem from="1593486637854" duration="4931000" />
+      <workItem from="1593494275382" duration="9307000" />
+      <workItem from="1593507643764" duration="5425000" />
+      <workItem from="1593521822316" duration="389000" />
+      <workItem from="1593522269161" duration="4159000" />
     </task>
     <servers />
   </component>
@@ -282,18 +369,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1590413795212">
+    <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1593444613096">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#Assign_Data_Sources/0.0.1366.728@0.0.1366.728" timestamp="1590413795212" />
+    <state x="275" y="22" key="#Assign_Data_Sources/0.0.1366.728@0.0.1366.728" timestamp="1593444613096" />
     <state x="275" y="22" key="#Notifications" timestamp="1590016698544">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590016698544" />
-    <state x="275" y="22" key="#Project_Structure" timestamp="1590400250994">
+    <state x="275" y="22" key="#Project_Structure" timestamp="1593515958590">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1590400250994" />
+    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1593515958590" />
     <state x="275" y="22" key="#SQL_Dialects" timestamp="1591088296775">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -302,14 +389,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Tomcat_Server/0.0.1366.728@0.0.1366.728" timestamp="1589938778114" />
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590334156048">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593522334468">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1590334156048" />
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1590542586756">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593522334468" />
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1593496869973">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590542586756" />
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593496869973" />
     <state x="412" y="140" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590334623848">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -326,6 +413,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="353" y="0" width="915" height="728" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog/0.0.1366.728@0.0.1366.728" timestamp="1591085596925" />
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593515052900">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1593515052900" />
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591085538857">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -338,58 +429,74 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591088358680" />
-    <state width="766" height="112" key="GridCell.Tab.0.bottom" timestamp="1591089795476">
+    <state width="1086" height="224" key="GridCell.Tab.0.bottom" timestamp="1593527528902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591089795476" />
-    <state width="766" height="112" key="GridCell.Tab.0.center" timestamp="1591089795475">
+    <state width="1086" height="224" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593527528902" />
+    <state width="1086" height="224" key="GridCell.Tab.0.center" timestamp="1593527528902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591089795475" />
-    <state width="766" height="112" key="GridCell.Tab.0.left" timestamp="1591089795474">
+    <state width="1086" height="224" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593527528902" />
+    <state width="1086" height="224" key="GridCell.Tab.0.left" timestamp="1593527528900">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591089795474" />
-    <state width="766" height="112" key="GridCell.Tab.0.right" timestamp="1591089795475">
+    <state width="1086" height="224" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593527528900" />
+    <state width="1086" height="224" key="GridCell.Tab.0.right" timestamp="1593527528902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591089795475" />
-    <state width="766" height="112" key="GridCell.Tab.1.bottom" timestamp="1591089795476">
+    <state width="1086" height="224" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593527528902" />
+    <state width="1086" height="224" key="GridCell.Tab.1.bottom" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591089795476" />
-    <state width="766" height="112" key="GridCell.Tab.1.center" timestamp="1591089795476">
+    <state width="1086" height="224" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.1.center" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591089795476" />
-    <state width="766" height="112" key="GridCell.Tab.1.left" timestamp="1591089795476">
+    <state width="1086" height="224" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.1.left" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591089795476" />
-    <state width="766" height="112" key="GridCell.Tab.1.right" timestamp="1591089795476">
+    <state width="1086" height="224" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.1.right" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591089795476" />
-    <state width="766" height="112" key="GridCell.Tab.2.bottom" timestamp="1591089795477">
+    <state width="1086" height="224" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.2.bottom" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591089795477" />
-    <state width="766" height="112" key="GridCell.Tab.2.center" timestamp="1591089795477">
+    <state width="1086" height="224" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.2.center" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1591089795477" />
-    <state width="766" height="112" key="GridCell.Tab.2.left" timestamp="1591089795477">
+    <state width="1086" height="224" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.2.left" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1591089795477" />
-    <state width="766" height="112" key="GridCell.Tab.2.right" timestamp="1591089795477">
+    <state width="1086" height="224" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="1086" height="224" key="GridCell.Tab.2.right" timestamp="1593527528377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="766" height="112" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1591089795477" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1590449944956">
+    <state width="1086" height="224" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1593527528377" />
+    <state width="802" height="226" key="GridCell.Tab.3.bottom" timestamp="1593418299838">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590449944956" />
+    <state width="802" height="226" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593418299838" />
+    <state width="802" height="226" key="GridCell.Tab.3.center" timestamp="1593418299838">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="802" height="226" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1593418299838" />
+    <state width="802" height="226" key="GridCell.Tab.3.left" timestamp="1593418299837">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="802" height="226" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1593418299837" />
+    <state width="802" height="226" key="GridCell.Tab.3.right" timestamp="1593418299838">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="802" height="226" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1593418299838" />
+    <state x="184" y="0" width="1085" height="728" key="SettingsEditor" timestamp="1593527522644">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="0" width="1085" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593527522644" />
     <state x="458" y="104" width="737" height="606" key="find.popup" timestamp="1590396335151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

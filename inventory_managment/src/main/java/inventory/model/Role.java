@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 public class Role {
@@ -12,8 +13,8 @@ public class Role {
     private String roleName;
     private String description;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
 
     @Id
     @Column(name = "ROLE_ID", nullable = false, precision = 0)
@@ -57,21 +58,21 @@ public class Role {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

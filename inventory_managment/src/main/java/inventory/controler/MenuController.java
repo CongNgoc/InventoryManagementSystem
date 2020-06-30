@@ -24,7 +24,7 @@ public class MenuController {
     @Autowired
     private RoleService roleService;
 
-    static final Logger log = Logger.getLogger(ProductInfoController.class);
+    static final Logger log = Logger.getLogger(MenuController.class);
     @InitBinder
     private void initBinder(WebDataBinder binder) {
         if(binder.getTarget()==null) {
@@ -41,9 +41,10 @@ public class MenuController {
     }
 
     @RequestMapping("/menu/list/{page}")
-    public String showMenuLIst(Model model, HttpSession session, @ModelAttribute("searchForm") Menu menu, @PathVariable("page") Short page) {
+    public String showMenuLIst(Model model, HttpSession session, @ModelAttribute("searchForm") Menu menu, @PathVariable("page") int page) {
         log.info("show menu list!");
-        Paging paging = new Paging(5);
+        Paging paging = new Paging(10);
+        paging.setIndexPage(page);
 
         List<Menu> menuList = menuService.getAllMenu(menu, paging);
 

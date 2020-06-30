@@ -5,10 +5,26 @@
 <hibernate-mapping>
 
     <class name="inventory.model.InvoiceDetail" table="INVOICE_DETAIL" schema="QLKHO_ADMIN">
-        <id name="inDeId" column="IN_DE_ID"/>
-        <property name="quanity" column="QUANITY"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="inDeId">
+            <column name="IN_DE_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="productId">
+            <column name="PRODUCT_ID" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="invoiceId">
+            <column name="INVOICE_ID" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="quanity">
+            <column name="QUANITY" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
     </class>
 </hibernate-mapping>

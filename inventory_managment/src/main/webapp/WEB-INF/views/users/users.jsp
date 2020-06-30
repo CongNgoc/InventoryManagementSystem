@@ -18,7 +18,7 @@
                     <div class="container">
                         <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/user/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/product-info/list/1" method="POST" accept-charset="UTF-8">
+                            <form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/user/list/1" method="POST" accept-charset="UTF-8">
                                 <div class="form-group col-md-9 col-sm-9 col-xs-6">
                                     <form:input path="firstName" placeholder="Enter first name, last name or email to search" cssClass="form-control col-md-7 col-xs-12" />
                                 </div>

@@ -5,11 +5,23 @@
 <hibernate-mapping>
 
     <class name="inventory.model.Role" table="ROLE" schema="QLKHO_ADMIN">
-        <id name="roleId" column="ROLE_ID"/>
-        <property name="roleName" column="ROLE_NAME"/>
-        <property name="description" column="DESCRIPTION"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="roleId">
+            <column name="ROLE_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="roleName">
+            <column name="ROLE_NAME" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <property name="description">
+            <column name="DESCRIPTION" sql-type="varchar2(200)" length="200" not-null="true"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
     </class>
 </hibernate-mapping>

@@ -5,16 +5,38 @@
 <hibernate-mapping>
 
     <class name="inventory.model.Users" table="USERS" schema="QLKHO_ADMIN">
-        <id name="userId" column="USER_ID"/>
-        <property name="firstName" column="FIRST_NAME"/>
-        <property name="lastName" column="LAST_NAME"/>
-        <property name="birthday" column="BIRTHDAY"/>
-        <property name="userName" column="USER_NAME"/>
-        <property name="password" column="PASSWORD"/>
-        <property name="email" column="EMAIL"/>
-        <property name="phone" column="PHONE"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="userId">
+            <column name="USER_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="firstName">
+            <column name="FIRST_NAME" sql-type="varchar2(25)" length="25"/>
+        </property>
+        <property name="lastName">
+            <column name="LAST_NAME" sql-type="varchar2(25)" length="25"/>
+        </property>
+        <property name="birthday">
+            <column name="BIRTHDAY" sql-type="date"/>
+        </property>
+        <property name="userName">
+            <column name="USER_NAME" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <property name="password">
+            <column name="PASSWORD" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <property name="email">
+            <column name="EMAIL" sql-type="varchar2(50)" length="50" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="PHONE" sql-type="varchar2(12)" length="12" not-null="true"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
     </class>
 </hibernate-mapping>

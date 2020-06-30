@@ -5,10 +5,26 @@
 <hibernate-mapping>
 
     <class name="inventory.model.Auth" table="AUTH" schema="QLKHO_ADMIN">
-        <id name="authId" column="AUTH_ID"/>
-        <property name="permission" column="PERMISSION"/>
-        <property name="activeFlag" column="ACTIVE_FLAG"/>
-        <property name="createDate" column="CREATE_DATE"/>
-        <property name="updateDate" column="UPDATE_DATE"/>
+        <id name="authId">
+            <column name="AUTH_ID" sql-type="number(5)" precision="5"/>
+        </id>
+        <property name="roleId">
+            <column name="ROLE_ID" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="menuId">
+            <column name="MENU_ID" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="permission">
+            <column name="PERMISSION" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="activeFlag">
+            <column name="ACTIVE_FLAG" sql-type="number(1)" precision="1"/>
+        </property>
+        <property name="createDate">
+            <column name="CREATE_DATE" sql-type="date"/>
+        </property>
+        <property name="updateDate">
+            <column name="UPDATE_DATE" sql-type="date"/>
+        </property>
     </class>
 </hibernate-mapping>

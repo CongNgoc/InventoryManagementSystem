@@ -26,7 +26,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserValidator userValidator;
-    static final Logger log = Logger.getLogger(ProductInfoController.class);
+    static final Logger log = Logger.getLogger(UserController.class);
     @InitBinder
     private void initBinder(WebDataBinder binder) {
         if(binder.getTarget()==null) {
@@ -49,6 +49,7 @@ public class UserController {
     public String showUserLIst(Model model, HttpSession session, @ModelAttribute("searchForm") Users users, @PathVariable("page") Short page) {
         log.info("show users list!");
         Paging paging = new Paging(5);
+        paging.setIndexPage(page);
 
         List<Users> usersList = userService.getALlUser(users, paging);
         model.addAttribute("titlePage", "All Users");

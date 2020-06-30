@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,30 @@ public class RoleService {
             }
         }
         return roleDAO.findAll(queryStr.toString(), mapParams, paging);
+    }
+
+    public void saveRole(Role role)  throws Exception{
+        log.info("Insert role "+role.toString());
+        role.setActiveFlag(true);
+        role.setCreateDate(new Date());
+        role.setUpdateDate(new Date());
+        roleDAO.save(role);
+    }
+    public void updateRole(Role role) throws Exception {
+        log.info("Update role "+role.toString());
+        role.setUpdateDate(new Date());
+        roleDAO.update(role);
+    }
+    public void deleteRole(Role role) throws Exception{
+        role.setActiveFlag(false);
+        role.setUpdateDate(new Date());
+        log.info("Delete role "+role.toString());
+        roleDAO.update(role);
+    }
+
+    public Role findByIdRole(int id) {
+        log.info("find role by id ="+id);
+        return roleDAO.findById(Role.class, id);
     }
 
 }

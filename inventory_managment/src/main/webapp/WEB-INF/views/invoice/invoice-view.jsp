@@ -156,8 +156,8 @@
                         ProductPrice: { type: Number },
                         Quantity: { type: Number },
                         Amount: { type: Number }
-        }
-        }
+                }
+            }
         });
             console.log("Run at here!")
 

@@ -41,8 +41,24 @@ public class LoginControler {
         }
     }
 
+    @GetMapping("")
+    public String normal(Model model) {
+        model.addAttribute("loginForm", new Users());
+        return "login/login";
+    }
+
+    @GetMapping("/index")
+    public String index(Model model) {
+        return "index";
+    }
+
     @GetMapping("/login")
     public String login(Model model) {
+        //Check subscriber has logged
+        if(Constant.USER_INFO != null && !Constant.USER_INFO.isEmpty()) {
+            return "redirect:/index";
+        }
+
         model.addAttribute("loginForm", new Users());
         return "login/login";
     }
@@ -102,8 +118,10 @@ public class LoginControler {
     }
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        log.info("==USER_INFO: " + session.getAttribute(Constant.USER_INFO));
         session.removeAttribute(Constant.MENU_SESSION);
         session.removeAttribute(Constant.USER_INFO);
+        log.info("==USER_INFO: " + session.getAttribute(Constant.USER_INFO));
         return "redirect:/login";
     }
 

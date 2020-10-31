@@ -104,10 +104,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    function gotoPage(page){
-        $('#searchForm').attr('action','<c:url value="/goods-issue/list/"/>'+page);
-        $('#searchForm').submit();
-    }
     $(document).ready(function(){
         processMessage();
         $('#fromDatePicker').datetimepicker({
@@ -120,6 +116,11 @@
             $(this).text(numeral($(this).text()).format('0,0'));
         })
     });
+    function gotoPage(page){
+        $('#searchForm').attr('action','<c:url value="/goods-issue/list/"/>'+page);
+        $('#searchForm').submit();
+    }
+
     function processMessage(){
         var msgSuccess = '${msgSuccess}';
         var msgError = '${msgError}';

@@ -46,7 +46,7 @@ public class FilterSystem implements HandlerInterceptor {
     }
 
     private boolean hasPermission(String url, Users users) {
-        if(url.contains("/index") || url.contains("/logout") || url.contains("/access-denied")) {
+        if(url.contains("/index") || url.contains("/logout") || url.contains("/access-denied") || url.contains("/weatherAPI")) {
             return true;
         }
         //Duplicate code => optimize

@@ -2,6 +2,7 @@ package inventory.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 @Table(name = "PRODUCT_IN_STOCK", schema = "QLKHO_ADMIN", catalog = "")
@@ -9,8 +10,8 @@ public class ProductInStock {
     private short productStockId;
     private long quanity;
     private boolean activeFlag;
-    private Time createDate;
-    private Time updateDate;
+    private Date createDate;
+    private Date updateDate;
     private short productId;
     private ProductInfo productInfo;
 
@@ -54,21 +55,21 @@ public class ProductInStock {
 
     @Basic
     @Column(name = "CREATE_DATE", nullable = false)
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     @Basic
     @Column(name = "UPDATE_DATE", nullable = false)
-    public Time getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Time updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

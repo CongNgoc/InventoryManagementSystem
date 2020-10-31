@@ -104,17 +104,24 @@
     </div>
 </div>
 <script type="text/javascript">
-    function confirmDelete(id){
-        if(confirm('Do you want delete this record?')){
-            window.location.href = '<c:url value="/goods-receipt/delete/"/>'+id;
-        }
-    }
     function gotoPage(page){
         $('#searchForm').attr('action','<c:url value="/goods-receipt/list/"/>'+page);
         $('#searchForm').submit();
-    }
+    };
     $(document).ready(function(){
         processMessage();
+        var d = new Date();
+
+        var month = d.getMonth();
+        var day = d.getDate();
+
+        var output = d.getFullYear() + '-' +
+            (month<10 ? '0' : '') + month + '-' +
+            (day<10 ? '0' : '') + day;
+
+        $("#datetimepicker-input").val(output + " 00:00:00");
+
+
         $('#fromDatePicker').datetimepicker({
             format : 'YYYY-MM-DD HH:mm:ss'
         });
@@ -145,6 +152,4 @@
             });
         }
     }
-
-
 </script>

@@ -75,7 +75,6 @@
         <put-attribute name="body"
                        value="/WEB-INF/views/menu/menu-list.jsp"></put-attribute>
     </definition>
-
     <definition name="role-list" extends="master">
         <put-attribute name="body"
                        value="/WEB-INF/views/role/role-list.jsp"></put-attribute>

@@ -123,7 +123,7 @@ public class GoodReceiptController {
         log.info("===List invoiceDetails size " + invoiceDetails.size());
         if(invoice!=null) {
             model.addAttribute("titlePage", "View Goods Receipt");
-            model.addAttribute("invoice", invoice);
+                model.addAttribute("invoice", invoice);
             model.addAttribute("invoiceDetails", invoiceDetails);
             return "goods-receipt-view";
         }

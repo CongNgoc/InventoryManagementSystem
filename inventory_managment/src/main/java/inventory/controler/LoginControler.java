@@ -116,6 +116,7 @@ public class LoginControler {
     public String accessDenied() {
         return "access-denied";
     }
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         log.info("==USER_INFO: " + session.getAttribute(Constant.USER_INFO));

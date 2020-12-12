@@ -52,7 +52,6 @@ public class CategoryController {
         paging.setIndexPage(page);
 
         List<Category> categories = categoryService.getAllCategory(category, paging);
-        log.info("========RUN AT HERE2");
         if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
             model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
             session.removeAttribute(Constant.MSG_SUCCESS);

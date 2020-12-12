@@ -57,6 +57,7 @@ public class UserDAOImpl extends BaseDAOImpl<Users> implements UserDAO<Users> {
     public Short getUserSEQ() {
         Query query = sessionFactory.getCurrentSession().createNativeQuery("select USERS_SEQ.nextval as num from dual").
                 addScalar("num", StandardBasicTypes.SHORT);;
+        log.debug("USERS_SEQ_VALUE: " + ((Short) query.uniqueResult()).shortValue());
 
         return ((Short) query.uniqueResult()).shortValue();
     }

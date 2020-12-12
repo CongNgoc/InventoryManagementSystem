@@ -159,8 +159,6 @@
                 }
             }
         });
-            console.log("Run at here!")
-
             // when parsing is done, export the data to PDF
             dataSource.read().then(function (data) {
                 var pdf = new shield.exp.PDFDocument({

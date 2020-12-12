@@ -55,6 +55,7 @@ public class UserController {
         model.addAttribute("titlePage", "All Users");
         model.addAttribute("pageInfo", paging);
         model.addAttribute("usersList", usersList);
+
         return "user-list";
     }
 
@@ -64,6 +65,7 @@ public class UserController {
         model.addAttribute("titlePage", "Add Users");
         model.addAttribute("viewOnly", false);
         model.addAttribute("modelForm", new Users());
+
         return "user-action";
     }
 

@@ -50,7 +50,6 @@ public class BaseDAOImpl<E> implements BaseDAO<E>{
             Long totalRecords = (Long) countQ.uniqueResult();
             paging.setTotalRows(totalRecords);
         }
-        log.info("====================RUN AT HERE!");
         log.info( "Query find all ====>" +queryString.toString());
         return query.list();
     }

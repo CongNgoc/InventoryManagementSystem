@@ -44,6 +44,8 @@ public class UserService {
                 mapParams.put("email","%"+users.getFirstName()+"%");
             }
         }
+        log.debug("Query Statement: " + queryStr);
+
         return userDAO.findAll(queryStr.toString(), mapParams, paging);
     }
 

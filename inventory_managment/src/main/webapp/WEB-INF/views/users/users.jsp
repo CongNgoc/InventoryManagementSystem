@@ -3,7 +3,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="right_col" role="main">
     <div class="">
-
         <div class="clearfix"></div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
@@ -12,8 +11,6 @@
 
                     <div class="clearfix"></div>
                 </div>
-
-
                 <div class="x_content">
                     <div class="container">
                         <div class="col-md-3 col-sm-3 col-xs-12"><a href="<c:url value="/user/add"/>" class="h-43 btn btn-app"><i class="fa fa-plus"></i>Add</a></div>
